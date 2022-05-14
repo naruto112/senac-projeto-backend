@@ -18,7 +18,7 @@
         }
       ],
       "image": "httpd:2.4",
-      "name": "senac-projeto-image"
+      "name": "senac-container"
     }
   ],
   "memory": "512",
