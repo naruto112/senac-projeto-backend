@@ -12,9 +12,9 @@
       },
       "portMappings": [
         {
-          "hostPort": 8080,
+          "hostPort": 7000,
           "protocol": "tcp",
-          "containerPort": 8080
+          "containerPort": 7000
         }
       ],
       "image": "httpd:2.4",
