@@ -3,7 +3,7 @@
   "networkMode": "awsvpc",
   "containerDefinitions": [
     {
-      "name": "projeto-senac-backend-app",
+      "name": "application",
       "image": "httpd:2.4",
       "portMappings": [
         {
