@@ -1,5 +1,5 @@
 {
-  "executionRoleArn": "arn:aws:iam::451391062431:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::611069673104:role/ecsTaskExecutionRole",
   "containerDefinitions": [
     {
       "logConfiguration": {
@@ -23,7 +23,7 @@
   ],
   "memory": "512",
   "family": "first-run-task-definition",
-  "requiresCompatibilities": ["FARGATE"],
+  "requiresCompatibilities": ["EC2"],
   "networkMode": "awsvpc",
   "cpu": "256"
 }

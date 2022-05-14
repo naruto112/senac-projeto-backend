@@ -35,7 +35,7 @@ env:
   AWS_REGION: us-east-1 # set this to your preferred AWS region, e.g. us-west-1
   ECR_REPOSITORY: projeto-senac-backend # set this to your Amazon ECR repository name
   ECS_SERVICE: projeto-senac-backend-service # set this to your Amazon ECS service name
-  ECS_CLUSTER: OracleDB # set this to your Amazon ECS cluster name
+  ECS_CLUSTER: cluster-senac # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION: first-run-task-definition.json # set this to the path to your Amazon ECS task definition
   # file, e.g. .aws/task-definition.json
   CONTAINER_NAME: senac-container # set this to the name of the container in the
