@@ -14,7 +14,7 @@
         {
           "hostPort": 8080,
           "protocol": "tcp",
-          "containerPort": 80
+          "containerPort": 8080
         }
       ],
       "image": "httpd:2.4",
