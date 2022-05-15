@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.acme.GreetingResourceTest" time="3.295" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.acme.GreetingResourceTest" time="3.655" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="18"/>
     <property name="test.url" value="http://localhost:8081"/>
@@ -14,7 +14,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="BR"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-18.0.1.1.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/renato.dev/Desktop/code-with-quarkus/target/surefire/surefirebooter12507593452861740932.jar /Users/renato.dev/Desktop/code-with-quarkus/target/surefire 2022-05-14T13-20-11_245-jvmRun1 surefire1028714636588114917tmp surefire_018037196982954691888tmp"/>
+    <property name="sun.java.command" value="/Users/renato.dev/Desktop/code-with-quarkus/target/surefire/surefirebooter14276947743737939445.jar /Users/renato.dev/Desktop/code-with-quarkus/target/surefire 2022-05-15T00-37-54_985-jvmRun1 surefire17123946995357224714tmp surefire_018407002225335878975tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="maven.home" value="/Users/renato.dev/.m2/wrapper/dists/apache-maven-3.8.4-bin/52ccbt68d252mdldqsfsn03jlf/apache-maven-3.8.4"/>
     <property name="jdk.debug" value="release"/>
@@ -33,7 +33,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/renato.dev/Desktop/code-with-quarkus/target/surefire/surefirebooter12507593452861740932.jar"/>
+    <property name="surefire.real.class.path" value="/Users/renato.dev/Desktop/code-with-quarkus/target/surefire/surefirebooter14276947743737939445.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="18.0.1.1+2-6"/>
@@ -61,15 +61,15 @@
     <property name="vertx.disableTCCL" value="true"/>
     <property name="java.vm.version" value="18.0.1.1+2-6"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
-    <property name="io.netty.machineId" value="f0:42:d0:16:f5:2f:f5:e5"/>
+    <property name="io.netty.machineId" value="83:f8:b9:e2:ce:e5:ad:59"/>
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="62.0"/>
   </properties>
-  <testcase name="testHelloEndpoint" classname="org.acme.GreetingResourceTest" time="0.802">
-    <system-out><![CDATA[2022-05-14 13:20:14,000 INFO  [org.jbo.threads] (main) JBoss Threads version 3.4.2.Final
-2022-05-14 13:20:14,847 INFO  [io.quarkus] (main) code-with-quarkus 1.0.0-SNAPSHOT on JVM (powered by Quarkus 2.9.0.Final) started in 1.185s. Listening on: http://localhost:8081
-2022-05-14 13:20:14,848 INFO  [io.quarkus] (main) Profile test activated. 
-2022-05-14 13:20:14,848 INFO  [io.quarkus] (main) Installed features: [cdi, resteasy-reactive, smallrye-context-propagation, vertx]
+  <testcase name="testHelloEndpoint" classname="org.acme.GreetingResourceTest" time="0.913">
+    <system-out><![CDATA[2022-05-15 00:37:57,682 INFO  [org.jbo.threads] (main) JBoss Threads version 3.4.2.Final
+2022-05-15 00:37:58,589 INFO  [io.quarkus] (main) code-with-quarkus 1.0.0-SNAPSHOT on JVM (powered by Quarkus 2.9.0.Final) started in 1.312s. Listening on: http://localhost:8081
+2022-05-15 00:37:58,589 INFO  [io.quarkus] (main) Profile test activated. 
+2022-05-15 00:37:58,589 INFO  [io.quarkus] (main) Installed features: [cdi, resteasy-reactive, smallrye-context-propagation, vertx]
 ]]></system-out>
   </testcase>
 </testsuite>

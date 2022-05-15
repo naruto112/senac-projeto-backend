@@ -75,19 +75,21 @@
 #   accessed directly. (example: "foo.example.com,bar.example.com")
 #
 ###
-FROM registry.access.redhat.com/ubi8/openjdk-11:1.11
-
-ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en'
+FROM registry.access.redhat.com/ubi8/openjdk-11:1.11 AS MAVEN_TOOL_CHAIN
+WORKDIR /tmp/
 COPY pom.xml /tmp/
 COPY src /tmp/src/
-WORKDIR /tmp/
-RUN mvn package
+RUN mvn clean package
 
-# We make four distinct layers so if there are application changes the library layers can be re-used
-COPY --chown=185 target/quarkus-app/lib/ /deployments/lib/
-COPY --chown=185 target/quarkus-app/*.jar /deployments/
-COPY --chown=185 target/quarkus-app/app/ /deployments/app/
-COPY --chown=185 target/quarkus-app/quarkus/ /deployments/quarkus/
+ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en'
+
+
+FROM fabric8/java-alpine-openjdk11-jre
+# # We make four distinct layers so if there are application changes the library layers can be re-used
+COPY --from=MAVEN_TOOL_CHAIN /tmp/target/quarkus-app/lib/ /deployments/lib/
+COPY --from=MAVEN_TOOL_CHAIN /tmp/target/quarkus-app/*.jar /deployments/
+COPY --from=MAVEN_TOOL_CHAIN /tmp/target/quarkus-app/app/ /deployments/app/
+COPY --from=MAVEN_TOOL_CHAIN /tmp/target/quarkus-app/quarkus/ /deployments/quarkus/
 
 EXPOSE 7000
 USER 185
