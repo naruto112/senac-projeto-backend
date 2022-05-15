@@ -12,6 +12,7 @@
       },
       "portMappings": [
         {
+          "ip": "10.0.0.4",
           "hostPort": 7000,
           "protocol": "tcp",
           "containerPort": 7000
