@@ -10,6 +10,12 @@
           "awslogs-stream-prefix": "senac"
         }
       },
+      "extraHosts": [
+        {
+          "hostname": "java-quarkus-host",
+          "ipAddress": "10.0.1.81"
+        }
+      ],
       "portMappings": [
         {
           "hostPort": 7000,
@@ -21,7 +27,6 @@
       "name": "senac-container"
     }
   ],
-  "IpAddress": "10.0.1.81",
   "memory": "512",
   "family": "first-run-task-definition",
   "requiresCompatibilities": ["EC2"],
