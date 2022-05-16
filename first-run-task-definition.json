@@ -21,12 +21,10 @@
       "name": "senac-container"
     }
   ],
+  "IpAddress": "10.0.1.81",
   "memory": "512",
   "family": "first-run-task-definition",
   "requiresCompatibilities": ["EC2"],
   "networkMode": "awsvpc",
-  "IPv4Addresses":[  
-    "10.0.0.4"
-  ],
   "cpu": "256"
 }
