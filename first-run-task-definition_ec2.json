@@ -23,7 +23,7 @@
   ],
   "memory": "512",
   "family": "first-run-task-definition",
-  "requiresCompatibilities": ["EC2"],
+  "requiresCompatibilities": ["FORTGATE"],
   "networkMode": "awsvpc",
   "cpu": "256"
 }
