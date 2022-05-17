@@ -27,7 +27,7 @@
       "name": "senac-container"
     }
   ],
-  "memory": "512",
+  "memory": "1024",
   "family": "first-run-task-definition",
   "requiresCompatibilities": ["EC2"],
   "networkMode": "host",
