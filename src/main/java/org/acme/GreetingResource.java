@@ -11,6 +11,6 @@ public class GreetingResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        return "Hello MUNDO TO NO ECS com LOAD BALANCER";
+        return "Hello MUNDO TO NO ECS com LOAD BALANCER FOI AGORA";
     }
 }

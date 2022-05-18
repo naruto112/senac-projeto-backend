@@ -15,7 +15,7 @@ public class GreetingResourceTest {
           .when().get("/hello")
           .then()
              .statusCode(200)
-             .body(is("Hello MUNDO TO NO ECS com LOAD BALANCER"));
+             .body(is("Hello MUNDO TO NO ECS com LOAD BALANCER FOI AGORA"));
     }
 
 }
