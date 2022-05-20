@@ -18,7 +18,7 @@ public class GreetingResourceTest {
           .when().get("/hello")
           .then()
              .statusCode(200)
-             .body(is("{\"message\":\"Hi Sister Six\"}"));
+             .body(is("{\"message\":\"Hi Sister Seven\"}"));
     }
 
 }
