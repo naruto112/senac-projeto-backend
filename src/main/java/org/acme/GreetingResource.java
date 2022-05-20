@@ -14,7 +14,7 @@ public class GreetingResource {
 
     @GET
     public Response hello() {
-        return Response.ok(new Modelo("Hi Sister Seven")).build();
+        return Response.ok(new Modelo("Hi Sister Nine")).build();
     }
 
     public static class Modelo {
