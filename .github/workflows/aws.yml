@@ -30,6 +30,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           # key: ${{ secrets.EC2_SSH_KEY }}
           port: ${{ secrets.PORT }}
+          debug: true
           script: whoami
 
       
