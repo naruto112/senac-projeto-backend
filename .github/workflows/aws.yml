@@ -25,5 +25,4 @@ jobs:
       - name: Build to EC2 Docker run
         run: |
           sudo docker build  -t java-img-quarkus .
-          sudo docker rm java-container-quarkus
           sudo docker run -d --name java-container-quarkus -p 7000:7000 java-img-quarkus:latest
