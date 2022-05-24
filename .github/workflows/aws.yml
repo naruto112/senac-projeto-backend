@@ -24,6 +24,7 @@ jobs:
           TARGET: ${{ secrets.TARGET_DIR }}
       - name: Build to EC2 run Quarkus
         run: |
-          sudo su
-          docker stop java-container-quarkus
-          
+          docker kill $(docker ps -q)
+          docker rm $(docker ps -a -q)
+          sudo docker build  -t java-img-quarkus .
+          sudo docker run -d --name java-container-quarkus -p 7000:7000 java-img-quarkus:latest
