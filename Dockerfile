@@ -2,7 +2,7 @@ FROM registry.access.redhat.com/ubi8/openjdk-11:1.11 AS MAVEN_TOOL_CHAIN
 WORKDIR /tmp/
 COPY pom.xml /tmp/
 COPY src /tmp/src/
-RUN mvn clean package
+RUN mvn clean package -Dmaven.test.skip=true
 
 
 FROM fabric8/java-alpine-openjdk11-jre

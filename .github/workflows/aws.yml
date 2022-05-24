@@ -24,5 +24,7 @@ jobs:
           TARGET: ${{ secrets.TARGET_DIR }}
       - name: Build to EC2 run Quarkus
         run: |
-          ./mvnw clean package -Dmaven.test.skip=true
-          java -jar target/quarkus-app/quarkus-run.jar
+          sudo docker stop java-container-quarkus
+          sudo docker rm java-container-quarkus
+          sudo docker build  -t java-img-quarkus .
+          sudo docker run -d --name java-container-quarkus -p 7000:7000 java-img-quarkus:latest
