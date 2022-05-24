@@ -29,7 +29,5 @@ jobs:
           user: ${{ secrets.USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY}}
           command: |
-            sudo docker stop java-container-quarkus
-            sudo docker rm java-container-quarkus
             sudo docker build  -t java-img-quarkus .
             
