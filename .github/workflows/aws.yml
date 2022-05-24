@@ -22,7 +22,7 @@ jobs:
           REMOTE_HOST: ${{ secrets.HOST_DNS }}
           REMOTE_USER: ${{ secrets.USERNAME }}
           TARGET: ${{ secrets.TARGET_DIR }}
-      - name: Build to EC2 Docker run
-        run: |
-          # sudo docker build  -t java-img-quarkus .
-          # sudo docker run -d --name java-img-quarkus -p 7000:7000 -v java-img-quarkus:latest
+      # - name: Build to EC2 Docker run
+      #   run: |
+      #     sudo docker build  -t java-img-quarkus .
+      #     sudo docker run -d --name java-img-quarkus -p 7000:7000 -v java-img-quarkus:latest
