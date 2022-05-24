@@ -24,5 +24,6 @@ jobs:
           TARGET: ${{ secrets.TARGET_DIR }}
       - name: Build to EC2 run Quarkus
         run: |
-          sudo docker stop java-container-quarkus
+          sudo su
+          docker stop java-container-quarkus
           
