@@ -22,9 +22,15 @@ jobs:
           REMOTE_HOST: ${{ secrets.HOST_DNS }}
           REMOTE_USER: ${{ secrets.USERNAME }}
           TARGET: ${{ secrets.TARGET_DIR }}
-      - name: Build to EC2 BUILD Quarkus
-        run: |
-          sudo docker build  -t java-img-quarkus .
-      - name: Run Docker Quarkus
-        run: |
-           sudo docker run -d --name java-container-quarkus -p 7000:7000 java-img-quarkus:latest
+      - name: Executing remote ssh commands using ssh key
+          uses: appleboy/ssh-action@master
+          with:
+            host: ${{ secrets.HOST_DNS }}
+            username: ${{ secrets.USERNAME }}
+            key: ${{ secrets.EC2_SSH_KEY }}
+            port: ${{ secrets.PORT }}
+            script: |
+              sudo docker start java-container-quarkus
+
+      
+      
