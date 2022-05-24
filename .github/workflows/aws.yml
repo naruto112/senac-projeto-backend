@@ -30,5 +30,8 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY}}
           command: |
             cd /home/ubuntu/java-quarkus-senac/
+            sudo docker stop java-container-quarkus
+            sudo docker rm java-container-quarkus
             sudo docker build  -t java-img-quarkus .
+            sudo docker run -d --name java-container-quarkus -p 7000:7000 java-img-quarkus:latest
             
