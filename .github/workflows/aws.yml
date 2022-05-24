@@ -29,5 +29,6 @@ jobs:
           user: ${{ secrets.USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY}}
           command: |
+            cd /home/ubuntu/java-quarkus-senac/
             sudo docker build  -t java-img-quarkus .
             
