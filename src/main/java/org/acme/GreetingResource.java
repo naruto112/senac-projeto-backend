@@ -33,9 +33,7 @@ public class GreetingResource {
 
 
     @POST
-    public Response examplePost(Modelo status){
-        return Response.ok(new Modelo("status "+ status.messsage + "atualizado")).build();
+    public Response examplePost(){
+        return Response.ok(new Modelo("status atualizado")).build();
     }
 }
-
- 
