@@ -22,6 +22,8 @@ jobs:
         run: mvn clean package
 
   deploy:
+    needs:
+      - build-java-quarkus
     name: Deploy to EC2 on main branch push
     runs-on: ubuntu-latest
 
