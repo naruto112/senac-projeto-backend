@@ -15,7 +15,7 @@ public class GreetingResource {
 
     @GET
     public Response hello() {
-        return Response.ok(new Modelo("Deploy com EC2")).build();
+        return Response.ok(new Modelo("Deploy com DJALMA")).build();
     }
 
     public static class Modelo {
