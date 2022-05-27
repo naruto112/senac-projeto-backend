@@ -1,4 +1,5 @@
 /Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/org/acme/GreetingResource.java
 /Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/org/acme/Model/Cliente.java
+/Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/org/acme/Services/Cliente/ServiceClientePost.java
 /Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/org/acme/ClienteResource.java
 /Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/org/acme/Services/Cliente/ServiceClienteGet.java
