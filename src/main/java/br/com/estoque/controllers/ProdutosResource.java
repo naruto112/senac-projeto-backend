@@ -1,12 +1,6 @@
 package br.com.estoque.controllers;
 
-import java.sql.ResultSet;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.inject.Named;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -20,7 +14,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import br.com.estoque.model.Produtos;
-import br.com.estoque.services.*;
 import br.com.estoque.services.produtos.ProdutoServiceDelete;
 import br.com.estoque.services.produtos.ProdutoServiceGet;
 import br.com.estoque.services.produtos.ProdutoServicePost;
@@ -28,7 +21,7 @@ import br.com.estoque.services.produtos.ProdutoServicePut;
 import io.agroal.api.AgroalDataSource;
 
 
-@Path("/projeto")
+@Path("/produtos")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class ProdutosResource {   

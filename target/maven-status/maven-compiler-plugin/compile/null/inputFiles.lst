@@ -1,3 +1,6 @@
 /Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/controllers/ProdutosResource.java
-/Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/services/ProdutoServiceGet.java
+/Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/services/produtos/ProdutoServicePut.java
+/Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/services/produtos/ProdutoServiceDelete.java
+/Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/services/produtos/ProdutoServiceGet.java
+/Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/services/produtos/ProdutoServicePost.java
 /Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/model/Produtos.java
