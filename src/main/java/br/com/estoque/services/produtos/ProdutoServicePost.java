@@ -3,7 +3,6 @@ package br.com.estoque.services.produtos;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Connection;
-
 import br.com.estoque.model.Produtos;
 import io.agroal.api.AgroalDataSource;
 
@@ -15,6 +14,5 @@ public class ProdutoServicePost {
         PreparedStatement ps = 
             connection.prepareStatement(query);
         ps.executeQuery();
-
     }
 }

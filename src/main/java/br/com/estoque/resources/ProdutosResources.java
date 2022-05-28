@@ -1,4 +1,4 @@
-package br.com.estoque.controllers;
+package br.com.estoque.resources;
 
 import java.sql.SQLException;
 import javax.inject.Named;
@@ -9,6 +9,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -23,8 +24,8 @@ import io.agroal.api.AgroalDataSource;
 
 @Path("/produtos")
 @Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
-public class ProdutosResource {   
+@Consumes(MediaType.APPLICATION_JSON )
+public class ProdutosResources {   
     @Inject
     @Named("oracle")
     AgroalDataSource dataSource;
@@ -37,7 +38,7 @@ public class ProdutosResource {
         try {
             return Response.ok(produtoServiceGet.execute(dataSource)).build();
         }catch(SQLException e) {
-            return Response.ok(e.getErrorCode()).build();
+            return Response.ok(e).build();
         }
         
     }
@@ -68,7 +69,8 @@ public class ProdutosResource {
     }
 
     @DELETE
-    public void delete(Integer id) {
+    @Path("{id}")
+    public void delete(@PathParam("id") Integer id) {
         
         try {
             ProdutoServiceDelete produtoServiceDelete = new ProdutoServiceDelete();

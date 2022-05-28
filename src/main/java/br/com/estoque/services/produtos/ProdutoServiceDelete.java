@@ -10,9 +10,8 @@ public class ProdutoServiceDelete {
     public void execute(AgroalDataSource dataSource, Integer id) throws SQLException {
 
         Connection connection = dataSource.getConnection();
-        PreparedStatement ps = 
-            connection.prepareStatement("DELETE ES_PRODUTOS WHERE ID = " + id);
-        ps.executeQuery();
-
+        // PreparedStatement ps = 
+        //     connection.prepareStatement("DELETE ES_PRODUTOS WHERE ID = " + id);
+        // ps.executeQuery();
     }
 }
