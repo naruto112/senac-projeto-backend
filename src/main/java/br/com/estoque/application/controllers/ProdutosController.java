@@ -36,7 +36,7 @@ public class ProdutosController {
     }
 
     @POST
-    public void post(Produto produto) throws SQLException {
+    public void post(Produto produto) {
         ProdutoServiceInsert.execute(dataSource, produto);
     }
 

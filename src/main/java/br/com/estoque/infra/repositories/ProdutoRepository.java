@@ -45,7 +45,7 @@ public class ProdutoRepository implements IProdutoService{
             return listProdutos;
 
         }catch(SQLException e) {
-            return null;
+            throw new Error(e);
         }
         
     }
@@ -53,12 +53,20 @@ public class ProdutoRepository implements IProdutoService{
     @Override
     public void deleteProduto(Integer id) {
         // TODO Auto-generated method stub
-        
     }
 
     @Override
     public void createProduto(Produto produto) {
-        // TODO Auto-generated method stub
+        try {
+            String query = 
+            "DECLARE V_ID ES_PRODUTOS.ID%TYPE;BEGIN PCKG_CRUD.INSERE_PROD_PCKG('"+produto.getNOM_PROD()+"', 0,0,0, V_ID);END;";
+            Connection connection = dataSource.getConnection();
+            PreparedStatement ps = 
+                connection.prepareStatement(query);
+            ps.executeQuery();
+        }catch(SQLException e) {
+            throw new Error(e);
+        }
         
     }
 
