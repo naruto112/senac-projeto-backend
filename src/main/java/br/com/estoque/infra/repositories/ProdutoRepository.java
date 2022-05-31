@@ -17,7 +17,7 @@ public class ProdutoRepository implements IProdutoService{
     private AgroalDataSource dataSource;
 
     public ProdutoRepository(AgroalDataSource dataSource) {
-        this.dataSource= dataSource;
+        this.dataSource = dataSource;
     }
 
     @Override

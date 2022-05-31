@@ -1,4 +1,4 @@
-package br.com.estoque.infra.services;
+package br.com.estoque.infra.services.produtos;
 
 import java.util.List;
 
@@ -8,7 +8,6 @@ import io.agroal.api.AgroalDataSource;
 
 
 public class ProdutoServiceAll {
-    
     
     public static List<Produto> execute(AgroalDataSource dataSource) {
         ProdutoRepository produtoRepository = new ProdutoRepository(dataSource);

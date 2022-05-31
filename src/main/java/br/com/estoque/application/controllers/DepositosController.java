@@ -13,44 +13,40 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import br.com.estoque.infra.services.produtos.ProdutoServiceAll;
-import br.com.estoque.infra.services.produtos.ProdutoServiceDelete;
-import br.com.estoque.infra.services.produtos.ProdutoServiceInsert;
-import br.com.estoque.infra.services.produtos.ProdutoServiceUpdate;
-import br.com.estoque.domain.produtos.Produto;
+import br.com.estoque.domain.depositos.Depositos;
+import br.com.estoque.infra.services.depositos.DepositoServiceAll;
+import br.com.estoque.infra.services.depositos.DepositoServiceDelete;
+import br.com.estoque.infra.services.depositos.DepositoServiceInsert;
+import br.com.estoque.infra.services.depositos.DepositoServiceUpdate;
 import io.agroal.api.AgroalDataSource;
 
-
-@Path("/produtos")
+@Path("/depositos")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON )
-public class ProdutosController {   
+public class DepositosController {
     @Inject
     @Named("oracle")
     AgroalDataSource dataSource;
 
-
-
     @GET
     public Response get() {
-        return Response.ok(ProdutoServiceAll.execute(dataSource)).build();
+        return Response.ok(DepositoServiceAll.execute(dataSource)).build();
     }
 
     @POST
-    public void post(Produto produto) {
-        ProdutoServiceInsert.execute(dataSource, produto);
+    public void post(Depositos depositos) {
+        DepositoServiceInsert.execute(dataSource, depositos);
     }
 
     @PUT
-    public void put(Produto produto) {
-        ProdutoServiceUpdate.execute(dataSource, produto);
+    public void put(Depositos depositos) {
+        DepositoServiceUpdate.execute(dataSource, depositos);
     }
 
     @DELETE
     @Path("{id}")
     public void delete(@PathParam("id") Integer id) {
-       ProdutoServiceDelete.execute(dataSource, id);
+        DepositoServiceDelete.execute(dataSource, id);
     }
+
 }
-
-
