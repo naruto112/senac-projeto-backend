@@ -8,8 +8,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import br.com.estoque.domain.Produto;
-import br.com.estoque.domain.interfaces.IProdutoService;
+
+import br.com.estoque.domain.produtos.interfaces.IProdutoService;
+import br.com.estoque.domain.produtos.Produto;
 
 public class ProdutoRepository implements IProdutoService{
 

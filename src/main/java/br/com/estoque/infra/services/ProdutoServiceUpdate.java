@@ -1,6 +1,6 @@
 package br.com.estoque.infra.services;
 
-import br.com.estoque.domain.Produto;
+import br.com.estoque.domain.produtos.Produto;
 import br.com.estoque.infra.repositories.ProdutoRepository;
 import io.agroal.api.AgroalDataSource;
 

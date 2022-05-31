@@ -1,8 +1,8 @@
-package br.com.estoque.domain.services;
+package br.com.estoque.domain.produtos.services;
 import java.util.List;
 
-import br.com.estoque.domain.Produto;
-import br.com.estoque.domain.interfaces.IProdutoService;
+import br.com.estoque.domain.produtos.interfaces.IProdutoService;
+import br.com.estoque.domain.produtos.Produto;
 import br.com.estoque.infra.repositories.ProdutoRepository;
 
 public class ProdutoService implements IProdutoService {

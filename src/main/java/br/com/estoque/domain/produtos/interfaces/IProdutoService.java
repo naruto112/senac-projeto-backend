@@ -1,7 +1,8 @@
-package br.com.estoque.domain.interfaces;
+package br.com.estoque.domain.produtos.interfaces;
 
-import br.com.estoque.domain.Produto;
 import java.util.List;
+
+import br.com.estoque.domain.produtos.Produto;
 
 
 public interface IProdutoService {

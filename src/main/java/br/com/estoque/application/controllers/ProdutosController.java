@@ -14,8 +14,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import br.com.estoque.domain.Produto;
 import br.com.estoque.infra.services.*;
+import br.com.estoque.domain.produtos.Produto;
 import br.com.estoque.infra.repositories.ProdutoRepository;
 import io.agroal.api.AgroalDataSource;
 

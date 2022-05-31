@@ -1,6 +1,6 @@
-package br.com.estoque.domain;
+package br.com.estoque.domain.produtos;
 
-import br.com.estoque.domain.dtos.ProdutosDTO;
+import br.com.estoque.domain.produtos.dtos.ProdutosDTO;
 
 public class Produto {
 

@@ -1,4 +1,4 @@
-package br.com.estoque.domain.dtos;
+package br.com.estoque.domain.produtos.dtos;
 
 
 public class ProdutosDTO {
