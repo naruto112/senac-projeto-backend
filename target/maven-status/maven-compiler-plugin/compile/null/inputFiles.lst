@@ -1,6 +1,8 @@
-/Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/controllers/ProdutosController.java
-/Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/services/produtos/ProdutoServicePut.java
-/Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/services/produtos/ProdutoServiceDelete.java
-/Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/services/produtos/ProdutoServiceGet.java
-/Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/services/produtos/ProdutoServicePost.java
-/Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/model/Produtos.java
+/Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/domain/dtos/ProdutosDTO.java
+/Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/domain/Produto.java
+/Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/application/controllers/ProdutosController.java
+/Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/domain/interfaces/IProdutoService.java
+/Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/domain/services/ProdutoService.java
+/Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/infra/repositories/ProdutoRepository.java
+/Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/domain/interfaces/_IProdutos.java
+/Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/infra/services/ProdutoServices.java

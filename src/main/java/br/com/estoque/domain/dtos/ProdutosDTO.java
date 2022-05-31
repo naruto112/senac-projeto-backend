@@ -1,9 +1,21 @@
-package br.com.estoque.model;
+package br.com.estoque.domain.dtos;
 
-import java.util.Currency;
 
-public class Produtos {
+public class ProdutosDTO {
     private Number ID;
+    private String NOM_PROD;
+    private Float NUM_VLR_MEDIO_UN;
+    private Float NUM_QTD_ESTOQUE;
+    private Float NUM_VLR_ESTOQUE;
+
+    public ProdutosDTO(Number ID, String NOM_PROD, Float NUM_VLR_MEDIO_UN, Float NUM_QTD_ESTOQUE, Float NUM_VLR_ESTOQUE) {
+        this.ID = ID;
+        this.NOM_PROD = NOM_PROD;
+        this.NUM_VLR_MEDIO_UN = NUM_VLR_MEDIO_UN;
+        this.NUM_QTD_ESTOQUE = NUM_QTD_ESTOQUE;
+        this.NUM_VLR_ESTOQUE = NUM_VLR_ESTOQUE;
+    }
+
     public Number getID() {
         return ID;
     }
@@ -34,8 +46,5 @@ public class Produtos {
     public void setNUM_VLR_ESTOQUE(Float nUM_VLR_ESTOQUE) {
         NUM_VLR_ESTOQUE = nUM_VLR_ESTOQUE;
     }
-    private String NOM_PROD;
-    private Float NUM_VLR_MEDIO_UN;
-    private Float NUM_QTD_ESTOQUE;
-    private Float NUM_VLR_ESTOQUE;
+    
 }
