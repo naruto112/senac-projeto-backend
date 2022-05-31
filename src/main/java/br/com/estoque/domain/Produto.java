@@ -59,9 +59,5 @@ public class Produto {
         this.NUM_QTD_ESTOQUE = produtosDTO.getNUM_QTD_ESTOQUE();
         this.NUM_VLR_ESTOQUE = produtosDTO.getNUM_VLR_ESTOQUE();
     }
-
-    public ProdutosDTO createProdutoDTO() {
-        return new ProdutosDTO(this.ID, this.NOM_PROD, this.NUM_VLR_MEDIO_UN, this.NUM_QTD_ESTOQUE, this.NUM_VLR_ESTOQUE);
-    }
     
 }

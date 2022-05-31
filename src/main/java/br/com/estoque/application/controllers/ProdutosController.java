@@ -14,9 +14,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import br.com.estoque.domain.dtos.ProdutosDTO;
-import br.com.estoque.domain.interfaces.IProdutoService;
-import br.com.estoque.domain.services.ProdutoService;
+import br.com.estoque.domain.Produto;
+import br.com.estoque.infra.services.*;
 import br.com.estoque.infra.repositories.ProdutoRepository;
 import io.agroal.api.AgroalDataSource;
 
@@ -29,56 +28,28 @@ public class ProdutosController {
     @Named("oracle")
     AgroalDataSource dataSource;
 
-    private final IProdutoService iProdutoService;
-
-    public ProdutosController(IProdutoService iProdutoService) {
-        this.iProdutoService = iProdutoService;
-    }
 
 
     @GET
     public Response get()  {
-        return Response.ok(iProdutoService.getAllProdutos()).build();
-        
+        return Response.ok(ProdutoServiceAll.execute(dataSource)).build();
     }
 
-    // @POST
-    // public void post(ProdutosDTO produto) throws SQLException {
+    @POST
+    public void post(Produto produto) throws SQLException {
+        ProdutoServiceInsert.execute(dataSource, produto);
+    }
 
-    //     ProdutoServicePost produtoServicePost = new ProdutoServicePost();
-        
-    //     try {
-    //         produtoServicePost.create(dataSource, produto);
-    //     } catch (SQLException e) {
-    //         throw new Error(e);
-    //     }
-        
-    // }
+    @PUT
+    public void put(Produto produto) {
+        ProdutoServiceUpdate.execute(dataSource, produto);
+    }
 
-    // @PUT
-    // public void put(ProdutosDTO produto) {
-
-    //     try {
-    //         ProdutoServicePut produtoServicePut = new ProdutoServicePut();
-    //         produtoServicePut.execute(dataSource, produto);
-    //     }catch(SQLException e) {
-    //         throw new Error(e);
-    //     }
-
-    // }
-
-    // @DELETE
-    // @Path("{id}")
-    // public void delete(@PathParam("id") Integer id) {
-        
-    //     try {
-    //         ProdutoServiceDelete produtoServiceDelete = new ProdutoServiceDelete();
-    //         produtoServiceDelete.execute(dataSource, id);
-    //     }catch(SQLException e) {
-    //         throw new Error(e);
-    //     }
-
-    // }
+    @DELETE
+    @Path("{id}")
+    public void delete(@PathParam("id") Integer id) {
+       ProdutoServiceDelete.execute(dataSource, id);
+    }
 }
 
 
