@@ -13,12 +13,9 @@ import br.com.estoque.domain.depositos.interfaces.IDepositosService;
 
 
 public class DepositoRepository implements IDepositosService {
-    
-    private AgroalDataSource dataSource;
-
-    public DepositoRepository(AgroalDataSource dataSource) {
-        this.dataSource = dataSource;
-    }
+    @Inject
+    @Named("oracle")
+    AgroalDataSource dataSource;
 
     @Override
     public List<Depositos> getAllDepositos() {
