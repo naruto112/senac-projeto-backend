@@ -22,6 +22,7 @@
 /Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/domain/fornecedores/interfaces/IFornecedorService.java
 /Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/domain/produtos/interfaces/IProdutoService.java
 /Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/domain/produtos/services/ProdutoService.java
+/Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/infra/config/SwaggerConfig.java
 /Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/infra/services/depositos/DepositoServiceAll.java
 /Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/application/controllers/ProdutosController.java
 /Users/renato.dev/Desktop/senac-projeto-backend/src/main/java/br/com/estoque/domain/depositos/interfaces/IDepositosService.java
