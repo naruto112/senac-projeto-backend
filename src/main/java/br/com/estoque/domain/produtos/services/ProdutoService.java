@@ -3,6 +3,7 @@ import java.util.List;
 
 import br.com.estoque.domain.produtos.interfaces.IProdutoService;
 import br.com.estoque.domain.produtos.Produto;
+import br.com.estoque.domain.produtos.dtos.ProdutosDTO;
 import br.com.estoque.infra.repositories.ProdutoRepository;
 
 public class ProdutoService implements IProdutoService {
@@ -14,7 +15,7 @@ public class ProdutoService implements IProdutoService {
     }
 
     @Override
-    public List<Produto> getAllProdutos() {
+    public List<ProdutosDTO> getAllProdutos() {
         return this.produtoRepository.getAllProdutos();
     }
 

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import br.com.estoque.domain.produtos.interfaces.IProdutoService;
 import br.com.estoque.domain.produtos.Produto;
+import br.com.estoque.domain.produtos.dtos.ProdutosDTO;
 
 public class ProdutoRepository implements IProdutoService{
 
@@ -21,10 +22,10 @@ public class ProdutoRepository implements IProdutoService{
     }
 
     @Override
-    public List<Produto> getAllProdutos() {
+    public List<ProdutosDTO> getAllProdutos() {
         
         try {
-            List<Produto> listProdutos = new ArrayList<Produto>();
+            List<ProdutosDTO> listProdutos = new ArrayList<ProdutosDTO>();
     
             Connection connection = dataSource.getConnection();
             PreparedStatement ps = 
@@ -33,7 +34,7 @@ public class ProdutoRepository implements IProdutoService{
 
             while (rs.next()) {
                 
-                Produto produto = new Produto();
+                ProdutosDTO produto = new ProdutosDTO(null, null, null, null, null);
                 produto.setID(rs.getInt("ID"));
                 produto.setNOM_PROD(rs.getString("NOM_PROD"));
                 produto.setNUM_VLR_MEDIO_UN(rs.getFloat("NUM_VLR_MEDIO_UN"));

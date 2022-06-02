@@ -13,13 +13,13 @@ public class Produto {
     public Produto() {
     }
 
-    // public Produto(Number ID, String NOM_PROD, Float NUM_VLR_MEDIO_UN, Float NUM_QTD_ESTOQUE, Float NUM_VLR_ESTOQUE) {
-    //     this.ID = ID;
-    //     this.NOM_PROD = NOM_PROD;
-    //     this.NUM_VLR_MEDIO_UN = NUM_VLR_MEDIO_UN;
-    //     this.NUM_QTD_ESTOQUE = NUM_QTD_ESTOQUE;
-    //     this.NUM_VLR_ESTOQUE = NUM_VLR_ESTOQUE;
-    // }
+    public Produto(Number ID, String NOM_PROD, Float NUM_VLR_MEDIO_UN, Float NUM_QTD_ESTOQUE, Float NUM_VLR_ESTOQUE) {
+        this.ID = ID;
+        this.NOM_PROD = NOM_PROD;
+        this.NUM_VLR_MEDIO_UN = NUM_VLR_MEDIO_UN;
+        this.NUM_QTD_ESTOQUE = NUM_QTD_ESTOQUE;
+        this.NUM_VLR_ESTOQUE = NUM_VLR_ESTOQUE;
+    }
 
     public Number getID() {
         return ID;
@@ -52,12 +52,12 @@ public class Produto {
         NUM_VLR_ESTOQUE = nUM_VLR_ESTOQUE;
     }
 
-    // public Produto(ProdutosDTO produtosDTO) {
-    //     this.ID = produtosDTO.getID();
-    //     this.NOM_PROD = produtosDTO.getNOM_PROD();
-    //     this.NUM_VLR_MEDIO_UN = produtosDTO.getNUM_VLR_MEDIO_UN();
-    //     this.NUM_QTD_ESTOQUE = produtosDTO.getNUM_QTD_ESTOQUE();
-    //     this.NUM_VLR_ESTOQUE = produtosDTO.getNUM_VLR_ESTOQUE();
-    // }
+    public Produto(ProdutosDTO produtosDTO) {
+        this.ID = produtosDTO.getID();
+        this.NOM_PROD = produtosDTO.getNOM_PROD();
+        this.NUM_VLR_MEDIO_UN = produtosDTO.getNUM_VLR_MEDIO_UN();
+        this.NUM_QTD_ESTOQUE = produtosDTO.getNUM_QTD_ESTOQUE();
+        this.NUM_VLR_ESTOQUE = produtosDTO.getNUM_VLR_ESTOQUE();
+    }
     
 }
