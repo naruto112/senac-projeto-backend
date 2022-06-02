@@ -28,6 +28,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Clean Project Quarkus
+        uses: fifsky/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_DNS }}
+          user: ${{ secrets.USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY}}
+          command: |
+            cd /home/ubuntu/
+            sudo rm -r java-quarkus-senac/
+
       - name: Checkout the files
         uses: actions/checkout@v2
 
