@@ -15,7 +15,7 @@ public class FornecedorService implements IFornecedorService {
     }
 
     @Override
-    public List getAllFornecedores() {
+    public List<Fornecedores> getAllFornecedores() {
         return this.fornecedorRepository.getAllFornecedores();
     }
 

@@ -23,9 +23,9 @@ public class DepositoRepository implements IDepositosService {
     }
 
     @Override
-    public List getAllDepositos() {
+    public List<Depositos> getAllDepositos() {
         try {
-            List listDepositos = new ArrayList();
+            List<Depositos> listDepositos = new ArrayList<Depositos>();
     
             Connection connection = dataSource.getConnection();
             PreparedStatement ps = 

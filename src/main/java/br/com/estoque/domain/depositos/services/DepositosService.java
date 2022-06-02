@@ -15,7 +15,7 @@ public class DepositosService implements IDepositosService {
     }
 
     @Override
-    public List getAllDepositos() {
+    public List<Depositos> getAllDepositos() {
         return this.depositoRepository.getAllDepositos();
     }
 
