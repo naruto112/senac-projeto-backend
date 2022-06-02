@@ -29,7 +29,7 @@ public class DepositoRepository implements IDepositosService {
     
             Connection connection = dataSource.getConnection();
             PreparedStatement ps = 
-                connection.prepareStatement("SELECT * FROM SENAC.ES_FORNECEDORES");
+                connection.prepareStatement("SELECT * FROM SENAC.ES_DEPOSITOS");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
