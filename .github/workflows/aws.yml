@@ -6,7 +6,7 @@ on:
     branches:
       - main
 
-# jobs:
+jobs:
 #   build-java-quarkus:
 #     name: Build in Java Quarkus
 #     runs-on: ubuntu-latest
