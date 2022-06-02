@@ -5,7 +5,7 @@ import br.com.estoque.infra.repositories.DepositoRepository;
 
 public class DepositoServiceInsert {
     
-    public static void execute(AgroalDataSource dataSource, Depositos depositos) {
+    public static void execute(Depositos depositos) {
         DepositoRepository depositoRepository = new DepositoRepository();
         depositoRepository.createDepositos(depositos);
     }
