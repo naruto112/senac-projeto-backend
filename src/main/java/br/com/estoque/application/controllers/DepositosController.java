@@ -24,26 +24,29 @@ import io.agroal.api.AgroalDataSource;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON )
 public class DepositosController {
+    @Inject
+    @Named("oracle")
+    AgroalDataSource dataSource;
 
     @GET
     public Response get() {
-        return Response.ok(DepositoServiceAll.execute()).build();
+        return Response.ok(DepositoServiceAll.execute(dataSource)).build();
     }
 
     @POST
     public void post(Depositos depositos) {
-        DepositoServiceInsert.execute(depositos);
+        DepositoServiceInsert.execute(dataSource, depositos);
     }
 
     @PUT
     public void put(Depositos depositos) {
-        DepositoServiceUpdate.execute(depositos);
+        DepositoServiceUpdate.execute(dataSource, depositos);
     }
 
     @DELETE
     @Path("{id}")
     public void delete(@PathParam("id") Integer id) {
-        DepositoServiceDelete.execute(id);
+        DepositoServiceDelete.execute(dataSource, id);
     }
 
 }
