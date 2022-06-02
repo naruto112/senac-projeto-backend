@@ -4,7 +4,7 @@ import br.com.estoque.infra.repositories.DepositoRepository;
 
 public class DepositoServiceDelete {
     
-    public static void execute(AgroalDataSource dataSource, Integer id) {
+    public static void execute(Integer id) {
         DepositoRepository depositoRepository = new DepositoRepository();
         depositoRepository.deleteDepositos(id);
     }
