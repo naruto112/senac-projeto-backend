@@ -14,7 +14,7 @@ public class ProdutoService implements IProdutoService {
     }
 
     @Override
-    public List getAllProdutos() {
+    public List<Produto> getAllProdutos() {
         return this.produtoRepository.getAllProdutos();
     }
 
