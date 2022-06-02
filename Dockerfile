@@ -5,7 +5,7 @@ COPY src /tmp/src/
 RUN mvn clean package -Dmaven.test.skip=true
 
 
-FROM fabric8/java-alpine-openjdk11-jre
+FROM registry.access.redhat.com/ubi8/openjdk-11:1.11
 COPY --from=MAVEN_TOOL_CHAIN /tmp/target/quarkus-app/lib/ /deployments/lib/
 COPY --from=MAVEN_TOOL_CHAIN /tmp/target/quarkus-app/*.jar /deployments/
 COPY --from=MAVEN_TOOL_CHAIN /tmp/target/quarkus-app/app/ /deployments/app/
