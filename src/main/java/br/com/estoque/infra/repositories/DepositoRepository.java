@@ -25,9 +25,9 @@ public class DepositoRepository implements IDepositosService {
     @Override
     public List<Depositos> getAllDepositos() {
 
-        List<Depositos> listDepositos = new ArrayList<Depositos>();
-
         try {
+
+            List<Depositos> listDepositos = new ArrayList<Depositos>();
     
             Connection connection = dataSource.getConnection();
             PreparedStatement ps = 
@@ -44,11 +44,12 @@ public class DepositoRepository implements IDepositosService {
             
             }
 
+            return listDepositos;
+
         }catch(SQLException e) {
             throw new Error(e);
         }
-
-        return listDepositos;
+        
     }
 
     @Override

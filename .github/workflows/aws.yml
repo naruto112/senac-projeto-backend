@@ -38,16 +38,16 @@ jobs:
           REMOTE_HOST: ${{ secrets.HOST_DNS }}
           REMOTE_USER: ${{ secrets.USERNAME }}
           TARGET: ${{ secrets.TARGET_DIR }}
-      - name: Executing remote ssh commands using ssh key
-        uses: fifsky/ssh-action@master
-        with:
-          host: ${{ secrets.HOST_DNS }}
-          user: ${{ secrets.USERNAME }}
-          key: ${{ secrets.EC2_SSH_KEY}}
-          command: |
-            cd /home/ubuntu/java-quarkus-senac/
-            sudo docker stop java-container-quarkus
-            sudo docker rm java-container-quarkus
-            sudo docker build  -t java-img-quarkus .
-            sudo docker run -d --name java-container-quarkus -p 7000:7000 java-img-quarkus:latest
+      # - name: Executing remote ssh commands using ssh key
+      #   uses: fifsky/ssh-action@master
+      #   with:
+      #     host: ${{ secrets.HOST_DNS }}
+      #     user: ${{ secrets.USERNAME }}
+      #     key: ${{ secrets.EC2_SSH_KEY}}
+      #     command: |
+      #       cd /home/ubuntu/java-quarkus-senac/
+      #       sudo docker stop java-container-quarkus
+      #       sudo docker rm java-container-quarkus
+      #       sudo docker build  -t java-img-quarkus .
+      #       sudo docker run -d --name java-container-quarkus -p 7000:7000 java-img-quarkus:latest
             
