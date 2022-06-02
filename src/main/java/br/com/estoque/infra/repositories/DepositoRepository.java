@@ -1,5 +1,7 @@
 package br.com.estoque.infra.repositories;
 
+import javax.inject.Named;
+import javax.inject.Inject;
 import io.agroal.api.AgroalDataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
