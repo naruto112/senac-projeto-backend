@@ -3,11 +3,10 @@ package br.com.estoque.domain.produtos.interfaces;
 import java.util.List;
 
 import br.com.estoque.domain.produtos.Produto;
-import br.com.estoque.domain.produtos.dtos.ProdutosDTO;
 
 
 public interface IProdutoService {
-    List<ProdutosDTO> getAllProdutos();
+    List<Produto> getAllProdutos();
     
     void deleteProduto(Integer id);
 
