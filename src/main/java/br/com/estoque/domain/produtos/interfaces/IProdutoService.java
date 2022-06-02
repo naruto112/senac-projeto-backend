@@ -6,7 +6,7 @@ import br.com.estoque.domain.produtos.Produto;
 
 
 public interface IProdutoService {
-    List<Produto> getAllProdutos();
+    List getAllProdutos();
     
     void deleteProduto(Integer id);
 

@@ -5,7 +5,7 @@ import br.com.estoque.domain.fornecedores.Fornecedores;
 import java.util.List;
 
 public interface IFornecedorService {
-    List<Fornecedores> getAllFornecedores();
+    List getAllFornecedores();
     
     void deleteFornecedores(Integer id);
 

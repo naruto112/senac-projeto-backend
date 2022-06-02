@@ -21,10 +21,10 @@ public class ProdutoRepository implements IProdutoService{
     }
 
     @Override
-    public List<Produto> getAllProdutos() {
+    public List getAllProdutos() {
         
         try {
-            List<Produto> listProdutos = new ArrayList<Produto>();
+            List listProdutos = new ArrayList();
     
             Connection connection = dataSource.getConnection();
             PreparedStatement ps = 

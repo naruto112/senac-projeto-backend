@@ -20,10 +20,10 @@ public class FornecedorRepository implements IFornecedorService{
     }
 
     @Override
-    public List<Fornecedores> getAllFornecedores() {
+    public List getAllFornecedores() {
         
         try {
-            List<Fornecedores> listFornecedores = new ArrayList<Fornecedores>();
+            List listFornecedores = new ArrayList();
     
             Connection connection = dataSource.getConnection();
             PreparedStatement ps = 

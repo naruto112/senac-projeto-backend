@@ -5,7 +5,7 @@ import br.com.estoque.domain.depositos.Depositos;
 import java.util.List;
 
 public interface IDepositosService {
-    List<Depositos> getAllDepositos();
+    List getAllDepositos();
 
     void deleteDepositos(Integer id);
 
