@@ -1,7 +1,5 @@
 package br.com.estoque.infra.repositories;
 
-import javax.inject.Named;
-import javax.inject.Inject;
 import io.agroal.api.AgroalDataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -62,7 +60,7 @@ public class DepositoRepository implements IDepositosService {
     public void createDepositos(Depositos depositos) {
         try {
             String query = 
-            "";
+            "DECLARE V_ID ES_DEPOSITOS.ID%TYPE;BEGIN PCKG_CRUD.INSERE_DEPOS_PCKG('"+depositos.getNOM_DEPOS()+"', V_ID);END;";
             Connection connection = dataSource.getConnection();
             PreparedStatement ps = 
                 connection.prepareStatement(query);
