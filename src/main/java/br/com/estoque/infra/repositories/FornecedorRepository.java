@@ -50,7 +50,16 @@ public class FornecedorRepository implements IFornecedorService{
 
     @Override
     public void deleteFornecedores(Integer id) {
-        // TODO Auto-generated method stub
+        try {
+            String query = 
+            "DELETE ES_FORNECEDORES WHERE ID = " + id;
+            Connection connection = dataSource.getConnection();
+            PreparedStatement ps = 
+                connection.prepareStatement(query);
+            ps.executeQuery();
+        }catch(SQLException e) {
+            throw new Error(e);
+        }      
         
     }
 
@@ -59,7 +68,7 @@ public class FornecedorRepository implements IFornecedorService{
 
         try {
             String query = 
-            "";
+            "DECLARE V_ID ES_FORNECEDORES.ID%TYPE;BEGIN PCKG_CRUD.INSERE_FORNEC_PCKG('"+fornecedores.getNOM_FORNEC()+"', V_ID);END;";
             Connection connection = dataSource.getConnection();
             PreparedStatement ps = 
                 connection.prepareStatement(query);

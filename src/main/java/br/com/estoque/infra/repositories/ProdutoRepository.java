@@ -53,7 +53,16 @@ public class ProdutoRepository implements IProdutoService{
 
     @Override
     public void deleteProduto(Integer id) {
-        // TODO Auto-generated method stub
+        try {
+            String query = 
+            "DELETE ES_PRODUTOS WHERE ID = " + id;
+            Connection connection = dataSource.getConnection();
+            PreparedStatement ps = 
+                connection.prepareStatement(query);
+            ps.executeQuery();
+        }catch(SQLException e) {
+            throw new Error(e);
+        }
     }
 
     @Override
