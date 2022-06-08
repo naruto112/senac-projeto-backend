@@ -10,6 +10,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.eclipse.microprofile.config.inject.ConfigProperty;
+
 import br.com.estoque.domain.usuarios.Usuario;
 import br.com.estoque.infra.services.usuarios.UsuarioServiceLogin;
 import io.agroal.api.AgroalDataSource;
@@ -22,10 +24,13 @@ public class AuthenticationController {
     @Named("oracle")
     AgroalDataSource dataSource;
 
+    @ConfigProperty(name = "crypto.secret") 
+    String secret;
+
     @Path("login")
     @POST
     public Response login(Usuario usuario) {
-        return Response.ok(UsuarioServiceLogin.execute(dataSource, usuario)).build();
+        return Response.ok(UsuarioServiceLogin.execute(dataSource, usuario, secret)).build();
     }
 
     @Path("forgot")

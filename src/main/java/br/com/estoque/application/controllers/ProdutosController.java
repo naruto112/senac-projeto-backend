@@ -15,6 +15,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import org.eclipse.microprofile.config.inject.ConfigProperty;
+
 import br.com.estoque.infra.config.CryptoHash;
 import br.com.estoque.infra.services.produtos.ProdutoServiceAll;
 import br.com.estoque.infra.services.produtos.ProdutoServiceDelete;
@@ -32,13 +34,15 @@ public class ProdutosController {
     @Named("oracle")
     AgroalDataSource dataSource;
 
+    @ConfigProperty(name = "crypto.secret") 
+    String secret;
 
     
     @GET
     public Response get(@HeaderParam("Authorization") String header) {
         try {
             String[] plainHash = header.split(" ");
-            if (CryptoHash.checkedHash(plainHash[0], plainHash[1])) {
+            if (CryptoHash.validateJWT(plainHash[1].toString(), secret)) {
                 return Response.ok(ProdutoServiceAll.execute(dataSource)).build();
             }else {
                 return Response.status(Status.UNAUTHORIZED).entity("Not Authorized").build();
@@ -49,12 +53,12 @@ public class ProdutosController {
         
         
     }
-
+    
     @POST
     public Response post(@HeaderParam("Authorization") String header, Produto produto) {
         try {
             String[] plainHash = header.split(" ");
-            if (CryptoHash.checkedHash(plainHash[0], plainHash[1])) {
+            if (CryptoHash.validateJWT(plainHash[1].toString(), secret)) {
                 ProdutoServiceInsert.execute(dataSource, produto);
                 return Response.status(Status.CREATED).build();
             }else {
@@ -70,7 +74,7 @@ public class ProdutosController {
     public Response put(@HeaderParam("Authorization") String header, Produto produto) {
         try {
             String[] plainHash = header.split(" ");
-            if (CryptoHash.checkedHash(plainHash[0], plainHash[1])) {
+            if (CryptoHash.validateJWT(plainHash[1].toString(), secret)) {
                 ProdutoServiceUpdate.execute(dataSource, produto);
                 return Response.status(Status.ACCEPTED).build();
             }else {
@@ -86,7 +90,7 @@ public class ProdutosController {
     @Path("{id}")
     public Response delete(@HeaderParam("Authorization") String header, @PathParam("id") Integer id) {
         String[] plainHash = header.split(" ");
-        if (CryptoHash.checkedHash(plainHash[0], plainHash[1])) {
+        if (CryptoHash.validateJWT(plainHash[1].toString(), secret)) {
             ProdutoServiceDelete.execute(dataSource, id);
             return Response.status(Status.ACCEPTED).build();
         }else {

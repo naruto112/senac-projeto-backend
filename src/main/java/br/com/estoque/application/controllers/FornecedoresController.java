@@ -15,6 +15,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import org.eclipse.microprofile.config.inject.ConfigProperty;
+
 import br.com.estoque.domain.fornecedores.Fornecedores;
 import br.com.estoque.infra.config.CryptoHash;
 import br.com.estoque.infra.services.fornecedores.FornecedorServiceAll;
@@ -31,11 +33,14 @@ public class FornecedoresController {
     @Named("oracle")
     AgroalDataSource dataSource;
 
+    @ConfigProperty(name = "crypto.secret") 
+    String secret;
+
     @GET
     public Response get(@HeaderParam("Authorization") String header) {
         try {
             String[] plainHash = header.split(" ");
-            if (CryptoHash.checkedHash(plainHash[0], plainHash[1])) {
+            if (CryptoHash.validateJWT(plainHash[1].toString(), secret)) {
                 return Response.ok(FornecedorServiceAll.execute(dataSource)).build();
             } else {
                 return Response.status(Status.UNAUTHORIZED).entity("Not Authorized").build();
@@ -50,7 +55,7 @@ public class FornecedoresController {
     public Response post(@HeaderParam("Authorization") String header, Fornecedores fornecedores) {
         try {
             String[] plainHash = header.split(" ");
-            if (CryptoHash.checkedHash(plainHash[0], plainHash[1])) {
+            if (CryptoHash.validateJWT(plainHash[1].toString(), secret)) {
                 FornecedorServiceInsert.execute(dataSource, fornecedores);
                 return Response.status(Status.CREATED).build();
             }else {
@@ -66,7 +71,7 @@ public class FornecedoresController {
     public Response put(@HeaderParam("Authorization") String header, Fornecedores fornecedores) {
         try {
             String[] plainHash = header.split(" ");
-            if (CryptoHash.checkedHash(plainHash[0], plainHash[1])) {
+            if (CryptoHash.validateJWT(plainHash[1].toString(), secret))  {
                 FornecedorServiceUpdate.execute(dataSource, fornecedores);
                 return Response.status(Status.ACCEPTED).build();
             }else {
@@ -83,7 +88,7 @@ public class FornecedoresController {
     public Response delete(@HeaderParam("Authorization") String header, @PathParam("id") Integer id) {
         try {
             String[] plainHash = header.split(" ");
-            if (CryptoHash.checkedHash(plainHash[0], plainHash[1])) {
+            if (CryptoHash.validateJWT(plainHash[1].toString(), secret))  {
                 FornecedorServiceDelete.execute(dataSource, id);
                 return Response.status(Status.ACCEPTED).build();
             }else {

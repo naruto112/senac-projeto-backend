@@ -13,6 +13,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import org.eclipse.microprofile.config.inject.ConfigProperty;
+
 import br.com.estoque.domain.usuarios.Usuario;
 import br.com.estoque.infra.config.CryptoHash;
 import br.com.estoque.infra.services.usuarios.UsuarioServiceAll;
@@ -28,11 +30,14 @@ public class UsuarioController {
     @Named("oracle")
     AgroalDataSource dataSource;
 
+    @ConfigProperty(name = "crypto.secret") 
+    String secret;
+
     @GET
     public Response get(@HeaderParam("Authorization") String header) {
         try {
             String[] plainHash = header.split(" ");
-            if (CryptoHash.checkedHash(plainHash[0], plainHash[1])){
+            if (CryptoHash.validateJWT(plainHash[1].toString(), secret)) {
                 return Response.ok(UsuarioServiceAll.execute(dataSource)).build();
             }else {
                 return Response.status(Status.UNAUTHORIZED).entity("Not Authorized").build();
@@ -44,18 +49,9 @@ public class UsuarioController {
     }
 
     @POST
-    public Response post(@HeaderParam("Authorization") String header, Usuario usuario) {
-        try {
-            String[] plainHash = header.split(" ");
-            if (CryptoHash.checkedHash(plainHash[0], plainHash[1])) {
-                UsuarioServiceInsert.execute(dataSource, usuario);
-                return Response.status(Status.CREATED).build();
-            }else {
-                return Response.status(Status.UNAUTHORIZED).entity("Not Authorized").build();
-            }
-        }catch(Exception e) {
-            return Response.status(Status.UNAUTHORIZED).entity("Not Authorized").build();
-        }
+    public Response post(Usuario usuario) {
+        UsuarioServiceInsert.execute(dataSource, usuario);
+        return Response.status(Status.CREATED).build();
         
     }
 
@@ -63,7 +59,7 @@ public class UsuarioController {
     public Response put(@HeaderParam("Authorization") String header, Usuario usuario) {
         try {
             String[] plainHash = header.split(" ");
-            if (CryptoHash.checkedHash(plainHash[0], plainHash[1])) {
+            if (CryptoHash.validateJWT(plainHash[1].toString(), secret)) {
                 UsuarioServiceUpdate.execute(dataSource, usuario);
                 return Response.status(Status.ACCEPTED).build();
             }else {
