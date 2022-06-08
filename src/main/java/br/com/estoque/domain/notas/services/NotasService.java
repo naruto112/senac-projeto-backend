@@ -1,6 +1,7 @@
 package br.com.estoque.domain.notas.services;
 
 import br.com.estoque.domain.notas.interfaces.INotasService;
+import br.com.estoque.domain.estoque.utils.OnMoveStockListener;
 import br.com.estoque.domain.notas.Notas;
 import br.com.estoque.infra.repositories.NotasRepository;
 import java.util.List;
@@ -19,8 +20,8 @@ public class NotasService implements INotasService {
     }
 
     @Override
-    public Number generateNota(Notas nota) {
-        return this.notasRepository.generateNota(nota);
+    public void insertNota(Notas nota, OnMoveStockListener listener) {
+        this.notasRepository.insertNota(nota,listener);
     }
 
 }

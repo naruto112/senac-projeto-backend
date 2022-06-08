@@ -3,6 +3,7 @@ package br.com.estoque.domain.estoque.services;
  
 import br.com.estoque.domain.estoque.Estoque;
 import br.com.estoque.domain.estoque.interfaces.IEstoqueService;
+import br.com.estoque.domain.estoque.utils.OnMoveStockListener;
 import br.com.estoque.infra.repositories.EstoqueRepository;
  
 public class EstoqueService implements IEstoqueService {
@@ -15,8 +16,8 @@ public class EstoqueService implements IEstoqueService {
 
 
     @Override
-    public void movimentaEstoque(Estoque estoque) {
-        this.estoqueRepository.movimentaEstoque(estoque);
+    public void movimentaEstoque(Estoque estoque, OnMoveStockListener listener) {
+        this.estoqueRepository.movimentaEstoque(estoque,listener);
     }
 
 

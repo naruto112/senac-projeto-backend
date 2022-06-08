@@ -1,9 +1,14 @@
 package br.com.estoque.domain.estoque.utils;
 
+import org.jboss.resteasy.annotations.Stream.MODE;
+
 import br.com.estoque.domain.estoque.Estoque;
 import br.com.estoque.domain.estoque.body.MovementBody;
+import br.com.estoque.domain.movimentacoes.Movimentacao;
 import br.com.estoque.domain.notas.Notas;
 import br.com.estoque.domain.reposprod.ReposProd;
+import br.com.estoque.infra.services.estoque.EstoqueServiceUpdate;
+import br.com.estoque.infra.services.movimentacao.MovimentacaoServiceInsert;
 import br.com.estoque.infra.services.notas.NotasServiceInsert;
 import br.com.estoque.infra.services.reposprod.ReposProdServiceInsert;
 import io.agroal.api.AgroalDataSource;
@@ -51,14 +56,21 @@ public class EstoqueHandler implements OnMoveStockListener{
 
     @Override
     public void onReceivedIdNota(Number id_nota) {
-        // TODO Auto-generated method stub
+        this.estoque.setID_NOTA(id_nota);
+
+        Movimentacao movimentacao = new Movimentacao();
+        movimentacao.setNOM_MOV(""+(body.isHasNota() ? 1000 :1001)+"");
+
+        MovimentacaoServiceInsert.execute(dataSource, movimentacao, this);
+        
         
     }
 
     @Override
     public void onReceivedIdMov(Number id_mov ) {
-        // TODO Auto-generated method stub
+        this.estoque.setID_MOV(id_mov);
         
+        EstoqueServiceUpdate.execute(dataSource, estoque, this);
     }
     
 }

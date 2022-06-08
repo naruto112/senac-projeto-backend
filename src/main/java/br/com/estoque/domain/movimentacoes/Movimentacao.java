@@ -1,74 +1,40 @@
 package br.com.estoque.domain.movimentacoes;
 
-import br.com.estoque.domain.reposprod.dtos.ReposProdDTO;
-
+import br.com.estoque.domain.movimentacoes.dtos.MovimentacaoDTO;
+ 
 public class Movimentacao {
 
+
     private Number ID;
-    private Number ID_PROD;
-    private Number ID_DEPOS;
-     private Number NUM_QTD_REPOS;
-     private Number NUM_QTD_ESTOQUE;
+    private String NOM_MOV;
 
 
      public Movimentacao(){};
-    public Movimentacao(Number ID, Number ID_PROD, Number ID_DEPOS, Number NUM_QTD_REPOS, Number NUM_QTD_ESTOQUE ) {
+    public Movimentacao(Number ID, String nOM_MOv) {
         this.ID = ID;
-        this.ID_PROD = ID_PROD;
-        this.ID_DEPOS = ID_DEPOS;
-        this.NUM_QTD_REPOS = NUM_QTD_REPOS;
-        this.NUM_QTD_ESTOQUE = NUM_QTD_ESTOQUE;
+        this.NOM_MOV = nOM_MOv;
  
      }
 
-     public Movimentacao(ReposProdDTO reposProdDTO){
-         this.ID = reposProdDTO.getID();
-         this.ID_PROD = reposProdDTO.getID_PROD();
-         this.ID_DEPOS = reposProdDTO.getID_DEPOS();
-         this.NUM_QTD_ESTOQUE = reposProdDTO.getNUM_QTD_ESTOQUE();
-         this.NUM_QTD_REPOS = reposProdDTO.getNUM_QTD_REPOS();
+     public Movimentacao(MovimentacaoDTO movimentacaoDTO){
+         this.ID = movimentacaoDTO.getID();
+         this.NOM_MOV = movimentacaoDTO.getNOM_MOV();
      }
- 
+
     
+
     public Number getID() {
         return ID;
     }
-
     public void setID(Number iD) {
         ID = iD;
     }
-
-    public Number getID_PROD() {
-        return ID_PROD;
+    public String getNOM_MOV() {
+        return NOM_MOV;
+    }
+    public void setNOM_MOV(String nOM_MOV) {
+        NOM_MOV = nOM_MOV;
     }
 
-    public void setID_PROD(Number iD_PROD) {
-        ID_PROD = iD_PROD;
-    }
 
-    public Number getID_DEPOS() {
-        return ID_DEPOS;
-    }
-
-    public void setID_DEPOS(Number iD_DEPOS) {
-        ID_DEPOS = iD_DEPOS;
-    }
-
-    public Number getNUM_QTD_REPOS() {
-        return NUM_QTD_REPOS;
-    }
-
-    public void setNUM_QTD_REPOS(Number nUM_QTD_REPOS) {
-        NUM_QTD_REPOS = nUM_QTD_REPOS;
-    }
-
-    public Number getNUM_QTD_ESTOQUE() {
-        return NUM_QTD_ESTOQUE;
-    }
-
-    public void setNUM_QTD_ESTOQUE(Number nUM_QTD_ESTOQUE) {
-        NUM_QTD_ESTOQUE = nUM_QTD_ESTOQUE;
-    }
-
-    
 }
