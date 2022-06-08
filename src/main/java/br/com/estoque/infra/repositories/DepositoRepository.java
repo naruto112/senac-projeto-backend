@@ -22,7 +22,9 @@ public class DepositoRepository implements IDepositosService {
 
     @Override
     public List<Depositos> getAllDepositos() {
+
         try {
+
             List<Depositos> listDepositos = new ArrayList<Depositos>();
     
             Connection connection = dataSource.getConnection();
@@ -45,18 +47,32 @@ public class DepositoRepository implements IDepositosService {
         }catch(SQLException e) {
             throw new Error(e);
         }
+        
     }
 
     @Override
     public void deleteDepositos(Integer id) {
-        // TODO Auto-generated method stub
-    }
+ 
+        try {
+            String query = 
+            "DELETE ES_DEPOSITOS WHERE ID =" +id;
+            Connection connection = dataSource.getConnection();
+            PreparedStatement ps = 
+                connection.prepareStatement(query);
+            ps.executeQuery();
+        }catch(SQLException e) {
+            throw new Error(e);
+        }
+        
+     }
 
     @Override
     public void createDepositos(Depositos depositos) {
         try {
-            String query =  "";
-            Connection connection = dataSource.getConnection();
+ 
+            String query = 
+            "DECLARE V_ID ES_DEPOSITOS.ID%TYPE;BEGIN PCKG_CRUD.INSERE_DEPOS_PCKG('"+depositos.getNOM_DEPOS()+"', V_ID);END;";
+             Connection connection = dataSource.getConnection();
             PreparedStatement ps = 
                 connection.prepareStatement(query);
             ps.executeQuery();

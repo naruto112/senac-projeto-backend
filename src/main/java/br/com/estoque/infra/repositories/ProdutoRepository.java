@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 import br.com.estoque.domain.produtos.interfaces.IProdutoService;
 import br.com.estoque.domain.produtos.Produto;
-import br.com.estoque.domain.produtos.dtos.ProdutosDTO;
 
 public class ProdutoRepository implements IProdutoService{
 
@@ -22,10 +21,10 @@ public class ProdutoRepository implements IProdutoService{
     }
 
     @Override
-    public List<ProdutosDTO> getAllProdutos() {
+    public List<Produto> getAllProdutos() {
         
         try {
-            List<ProdutosDTO> listProdutos = new ArrayList<ProdutosDTO>();
+            List<Produto> listProdutos = new ArrayList<Produto>();
     
             Connection connection = dataSource.getConnection();
             PreparedStatement ps = 
@@ -34,7 +33,7 @@ public class ProdutoRepository implements IProdutoService{
 
             while (rs.next()) {
                 
-                ProdutosDTO produto = new ProdutosDTO(null, null, null, null, null);
+                Produto produto = new Produto();
                 produto.setID(rs.getInt("ID"));
                 produto.setNOM_PROD(rs.getString("NOM_PROD"));
                 produto.setNUM_VLR_MEDIO_UN(rs.getFloat("NUM_VLR_MEDIO_UN"));
@@ -54,7 +53,16 @@ public class ProdutoRepository implements IProdutoService{
 
     @Override
     public void deleteProduto(Integer id) {
-        // TODO Auto-generated method stub
+        try {
+            String query = 
+            "DELETE ES_PRODUTOS WHERE ID = " + id;
+            Connection connection = dataSource.getConnection();
+            PreparedStatement ps = 
+                connection.prepareStatement(query);
+            ps.executeQuery();
+        }catch(SQLException e) {
+            throw new Error(e);
+        }
     }
 
     @Override

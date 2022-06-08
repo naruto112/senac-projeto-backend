@@ -49,15 +49,6 @@ public class EstoqueController {
     
      }
 
-    @PUT
-    public void put( ) {
-     }
-
-    @DELETE
-    @Path("{id}")
-    public void delete(@PathParam("id") Integer id) {
-    }
-
 }
 
 

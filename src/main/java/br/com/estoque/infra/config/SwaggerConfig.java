@@ -6,6 +6,7 @@ import org.eclipse.microprofile.openapi.annotations.info.License;
 
 import javax.ws.rs.core.Application;
 
+
 @OpenAPIDefinition(
         
         info = @Info(
