@@ -1,15 +1,13 @@
-package br.com.estoque.domain.depositos.interfaces;
+package br.com.estoque.domain.notas.interfaces;
 
-import br.com.estoque.domain.depositos.Depositos;
+import br.com.estoque.domain.estoque.utils.OnMoveStockListener;
+import br.com.estoque.domain.notas.*;
 
 import java.util.List;
 
-public interface IDepositosService {
-    List<Depositos> getAllDepositos();
+public interface INotasService {
+    List<Notas> getAllNotas();
 
-    void deleteDepositos(Integer id);
-
-    void createDepositos(Depositos depositos);
-
-    void updateDepositos(Depositos depositos);
+    void insertNota(Notas nota, OnMoveStockListener listener);
+    
 }

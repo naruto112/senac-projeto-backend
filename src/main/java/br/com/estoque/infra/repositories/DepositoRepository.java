@@ -1,7 +1,5 @@
 package br.com.estoque.infra.repositories;
 
-import javax.inject.Named;
-import javax.inject.Inject;
 import io.agroal.api.AgroalDataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -52,14 +50,12 @@ public class DepositoRepository implements IDepositosService {
     @Override
     public void deleteDepositos(Integer id) {
         // TODO Auto-generated method stub
-        
     }
 
     @Override
     public void createDepositos(Depositos depositos) {
         try {
-            String query = 
-            "";
+            String query =  "";
             Connection connection = dataSource.getConnection();
             PreparedStatement ps = 
                 connection.prepareStatement(query);
@@ -67,7 +63,6 @@ public class DepositoRepository implements IDepositosService {
         }catch(SQLException e) {
             throw new Error(e);
         }
-        
     }
 
     @Override

@@ -1,8 +1,8 @@
 package br.com.estoque.domain.movimentacoes.interfaces;
 
-import br.com.estoque.domain.reposprod.Movimentacao;
-import br.com.estoque.domain.reposprod.ReposProd;
-
+import br.com.estoque.domain.estoque.utils.OnMoveStockListener;
+import br.com.estoque.domain.movimentacoes.Movimentacao;
+ 
 public interface IMovimentacaoService {
-    void boundReposWithProduct(Movimentacao movimentacao);
+    void insertMovimentacao(Movimentacao movimentacao,OnMoveStockListener listener);
 }

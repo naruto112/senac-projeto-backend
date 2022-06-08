@@ -1,89 +1,53 @@
 package br.com.estoque.infra.repositories;
 
-import javax.inject.Named;
-import javax.inject.Inject;
 import io.agroal.api.AgroalDataSource;
+import io.quarkus.logging.Log;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
-import br.com.estoque.domain.depositos.Depositos;
-import br.com.estoque.domain.depositos.interfaces.IDepositosService;
+import br.com.estoque.domain.estoque.Estoque;
+import br.com.estoque.domain.estoque.utils.OnMoveStockListener;
+import br.com.estoque.domain.reposprod.ReposProd;
+import br.com.estoque.domain.reposprod.interfaces.IReposProdService;
 
 
-public class DepositoRepository implements IDepositosService {
+//vincula deposito com produto
+public class ReposProdRepository implements IReposProdService {
   
     private AgroalDataSource dataSource;
 
-    public DepositoRepository(AgroalDataSource dataSource) {
+    public ReposProdRepository(AgroalDataSource dataSource) {
         this.dataSource = dataSource;
     }
 
+    //TODO FAZEndo
     @Override
-    public List<Depositos> getAllDepositos() {
-        try {
-            List<Depositos> listDepositos = new ArrayList<Depositos>();
-    
+    public void boundReposWithProduct(ReposProd reposProd ,OnMoveStockListener listener ) {
+        try{
+            String query = "DECLARE V_ID ES_REPOS_PROD.ID%TYPE;BEGIN PCKG_CRUD.REPOS_PROD("+reposProd.getID_PROD()+","+ reposProd.getID_DEPOS()+ " ,0, V_ID);END;";
             Connection connection = dataSource.getConnection();
-            PreparedStatement ps = 
-                connection.prepareStatement("SELECT * FROM SENAC.ES_DEPOSITOS");
+            PreparedStatement ps =  connection.prepareStatement(query); 
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 
-                Depositos depositos = new Depositos();
-                depositos.setID(rs.getInt("ID"));
-                depositos.setNOM_DEPOS(rs.getString("NOM_DEPOS"));
+                reposProd.setID(rs.getInt("V_ID"));
+                System.out.println("AFTEER V_ID"+reposProd.getID());
 
-                listDepositos.add(depositos);
-            
+                reposProd.setID(rs.getInt("ID"));
+                System.out.println("AFTEER ID"+reposProd.getID());
+
+                listener.onReceivedIdReposProd(reposProd.getID());
+
             }
 
-            return listDepositos;
 
-        }catch(SQLException e) {
+         }catch(SQLException e){
             throw new Error(e);
-        }
+        }        
     }
 
-    @Override
-    public void deleteDepositos(Integer id) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    public void createDepositos(Depositos depositos) {
-        try {
-            String query = 
-            "";
-            Connection connection = dataSource.getConnection();
-            PreparedStatement ps = 
-                connection.prepareStatement(query);
-            ps.executeQuery();
-        }catch(SQLException e) {
-            throw new Error(e);
-        }
-        
-    }
-
-    @Override
-    public void updateDepositos(Depositos depositos) {
-        try{
-            String query = 
-            "UPDATE ES_DEPOSITOS SET " + 
-            "NOM_DEPOS='" + depositos.getNOM_DEPOS() + "'" + 
-            " WHERE ID = " + depositos.getID();
-            Connection connection = dataSource.getConnection();
-            PreparedStatement ps = 
-                connection.prepareStatement(query);
-            ps.executeQuery();
-        }catch(SQLException e){
-            throw new Error(e);
-        }
-        
-    }
 }

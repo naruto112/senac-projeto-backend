@@ -1,13 +1,14 @@
-package br.com.estoque.infra.services.depositos;
-
-import br.com.estoque.domain.depositos.Depositos;
-import br.com.estoque.infra.repositories.DepositoRepository;
+package br.com.estoque.infra.services.reposprod;
+ 
+ import br.com.estoque.domain.estoque.utils.OnMoveStockListener;
+import br.com.estoque.domain.reposprod.ReposProd;
+import br.com.estoque.infra.repositories.*;
 import io.agroal.api.AgroalDataSource;
 
-public class DepositoServiceInsert {
+public class ReposProdServiceInsert {
     
-    public static void execute(AgroalDataSource dataSource, Depositos depositos) {
-        DepositoRepository depositoRepository = new DepositoRepository(dataSource);
-        depositoRepository.createDepositos(depositos);
+    public static void execute(AgroalDataSource dataSource, ReposProd reposProd ,OnMoveStockListener listener) {
+        ReposProdRepository reposProdRepository = new ReposProdRepository(dataSource);
+        reposProdRepository.boundReposWithProduct(reposProd,listener);
     }
 }

@@ -1,41 +1,25 @@
-package br.com.estoque.domain.depositos.services;
+package br.com.estoque.domain.reposprod.services;
 
-import java.util.List;
+ import br.com.estoque.domain.estoque.utils.OnMoveStockListener;
+import br.com.estoque.domain.reposprod.ReposProd;
+import br.com.estoque.domain.reposprod.interfaces.IReposProdService;
+import br.com.estoque.infra.repositories.ReposProdRepository;
 
-import br.com.estoque.domain.depositos.Depositos;
-import br.com.estoque.domain.depositos.interfaces.IDepositosService;
-import br.com.estoque.infra.repositories.DepositoRepository;
-
-public class DepositosService implements IDepositosService {
+public class ReposProdService implements IReposProdService {
     
-    private final DepositoRepository depositoRepository;
+    private final ReposProdRepository reposProdRepository;
 
-    public DepositosService(DepositoRepository depositoRepository) {
-        this.depositoRepository = depositoRepository;
+    public ReposProdService(ReposProdRepository reposProdRepository) {
+        this.reposProdRepository = reposProdRepository;
     }
 
     @Override
-    public List<Depositos> getAllDepositos() {
-        return this.depositoRepository.getAllDepositos();
+    public void boundReposWithProduct(ReposProd reposProd,  OnMoveStockListener listener) {
+        this.reposProdRepository.boundReposWithProduct(reposProd,listener);        
     }
 
-    @Override
-    public void deleteDepositos(Integer id) {
-        this.depositoRepository.deleteDepositos(id);
-        
-    }
 
-    @Override
-    public void createDepositos(Depositos depositos) {
-        this.depositoRepository.createDepositos(depositos);
-        
-    }
 
-    @Override
-    public void updateDepositos(Depositos depositos) {
-        this.depositoRepository.updateDepositos(depositos);
-        
-    }
-    
+
 
 }

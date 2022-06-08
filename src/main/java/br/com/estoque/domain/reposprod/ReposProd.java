@@ -1,36 +1,35 @@
-package br.com.estoque.domain.estoque;
+package br.com.estoque.domain.reposprod;
 
-import br.com.estoque.domain.estoque.dtos.EstoqueDTO;
- 
-public class Estoque {
+import br.com.estoque.domain.reposprod.dtos.ReposProdDTO;
+
+public class ReposProd {
 
     private Number ID;
-    private Number ID_REPOS_PROD;
-    private Number ID_NOTA;
-    private Number ID_MOV;
-    private Number NUM_QTD_PROD;
-    private Number NUM_CUSTO_UN_PROD;
+    private Number ID_PROD;
+    private Number ID_DEPOS;
+     private Number NUM_QTD_REPOS;
+     private Number NUM_QTD_ESTOQUE;
 
-    public Estoque(){}
 
-    public Estoque(Number ID, Number ID_REPOS_PROD, Number ID_NOTA, Number ID_MOV, Number NUM_QTD_PROD, Number NUM_CUSTO_UN_PROD) {
+     public ReposProd(){};
+    public ReposProd(Number ID, Number ID_PROD, Number ID_DEPOS, Number NUM_QTD_REPOS, Number NUM_QTD_ESTOQUE ) {
         this.ID = ID;
-        this.ID_REPOS_PROD = ID_REPOS_PROD;
-        this.ID_NOTA = ID_NOTA;
-        this.ID_MOV = ID_MOV;
-        this.NUM_QTD_PROD = NUM_QTD_PROD;
-        this.NUM_CUSTO_UN_PROD = NUM_CUSTO_UN_PROD;
+        this.ID_PROD = ID_PROD;
+        this.ID_DEPOS = ID_DEPOS;
+        this.NUM_QTD_REPOS = NUM_QTD_REPOS;
+        this.NUM_QTD_ESTOQUE = NUM_QTD_ESTOQUE;
+ 
      }
 
-     public Estoque(EstoqueDTO estoqueDTO) {
-        this.ID = estoqueDTO.getID();
-        this.ID_MOV = estoqueDTO.getID_MOV();
-        this.ID_NOTA = estoqueDTO.getID_NOTA();
-        this.ID_REPOS_PROD = estoqueDTO.getID_REPOS_PROD();
-        this.NUM_CUSTO_UN_PROD = estoqueDTO.getNUM_CUSTO_UN_PROD();
-        this.NUM_QTD_PROD = estoqueDTO.getNUM_QTD_PROD();
-    }
-
+     public ReposProd(ReposProdDTO reposProdDTO){
+         this.ID = reposProdDTO.getID();
+         this.ID_PROD = reposProdDTO.getID_PROD();
+         this.ID_DEPOS = reposProdDTO.getID_DEPOS();
+         this.NUM_QTD_ESTOQUE = reposProdDTO.getNUM_QTD_ESTOQUE();
+         this.NUM_QTD_REPOS = reposProdDTO.getNUM_QTD_REPOS();
+     }
+ 
+    
     public Number getID() {
         return ID;
     }
@@ -39,46 +38,37 @@ public class Estoque {
         ID = iD;
     }
 
-    public Number getID_REPOS_PROD() {
-        return ID_REPOS_PROD;
+    public Number getID_PROD() {
+        return ID_PROD;
     }
 
-    public void setID_REPOS_PROD(Number iD_REPOS_PROD) {
-        ID_REPOS_PROD = iD_REPOS_PROD;
+    public void setID_PROD(Number iD_PROD) {
+        ID_PROD = iD_PROD;
     }
 
-    public Number getID_NOTA() {
-        return ID_NOTA;
+    public Number getID_DEPOS() {
+        return ID_DEPOS;
     }
 
-    public void setID_NOTA(Number iD_NOTA) {
-        ID_NOTA = iD_NOTA;
+    public void setID_DEPOS(Number iD_DEPOS) {
+        ID_DEPOS = iD_DEPOS;
     }
 
-    public Number getID_MOV() {
-        return ID_MOV;
+    public Number getNUM_QTD_REPOS() {
+        return NUM_QTD_REPOS;
     }
 
-    public void setID_MOV(Number iD_MOV) {
-        ID_MOV = iD_MOV;
+    public void setNUM_QTD_REPOS(Number nUM_QTD_REPOS) {
+        NUM_QTD_REPOS = nUM_QTD_REPOS;
     }
 
-    public Number getNUM_QTD_PROD() {
-        return NUM_QTD_PROD;
+    public Number getNUM_QTD_ESTOQUE() {
+        return NUM_QTD_ESTOQUE;
     }
 
-    public void setNUM_QTD_PROD(Number nUM_QTD_PROD) {
-        NUM_QTD_PROD = nUM_QTD_PROD;
+    public void setNUM_QTD_ESTOQUE(Number nUM_QTD_ESTOQUE) {
+        NUM_QTD_ESTOQUE = nUM_QTD_ESTOQUE;
     }
 
-    public Number getNUM_CUSTO_UN_PROD() {
-        return NUM_CUSTO_UN_PROD;
-    }
-
-    public void setNUM_CUSTO_UN_PROD(Number nUM_CUSTO_UN_PROD) {
-        NUM_CUSTO_UN_PROD = nUM_CUSTO_UN_PROD;
-    }
-
-
-
+    
 }

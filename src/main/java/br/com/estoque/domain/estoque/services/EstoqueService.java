@@ -1,41 +1,23 @@
-package br.com.estoque.domain.depositos.services;
+package br.com.estoque.domain.estoque.services;
 
-import java.util.List;
-
-import br.com.estoque.domain.depositos.Depositos;
-import br.com.estoque.domain.depositos.interfaces.IDepositosService;
-import br.com.estoque.infra.repositories.DepositoRepository;
-
-public class DepositosService implements IDepositosService {
+ 
+import br.com.estoque.domain.estoque.Estoque;
+import br.com.estoque.domain.estoque.interfaces.IEstoqueService;
+import br.com.estoque.infra.repositories.EstoqueRepository;
+ 
+public class EstoqueService implements IEstoqueService {
     
-    private final DepositoRepository depositoRepository;
+    private final EstoqueRepository estoqueRepository;
 
-    public DepositosService(DepositoRepository depositoRepository) {
-        this.depositoRepository = depositoRepository;
+    public EstoqueService(EstoqueRepository notasRepository) {
+        this.estoqueRepository = notasRepository;
     }
 
-    @Override
-    public List<Depositos> getAllDepositos() {
-        return this.depositoRepository.getAllDepositos();
-    }
 
     @Override
-    public void deleteDepositos(Integer id) {
-        this.depositoRepository.deleteDepositos(id);
-        
+    public void movimentaEstoque(Estoque estoque) {
+        this.estoqueRepository.movimentaEstoque(estoque);
     }
 
-    @Override
-    public void createDepositos(Depositos depositos) {
-        this.depositoRepository.createDepositos(depositos);
-        
-    }
-
-    @Override
-    public void updateDepositos(Depositos depositos) {
-        this.depositoRepository.updateDepositos(depositos);
-        
-    }
-    
 
 }

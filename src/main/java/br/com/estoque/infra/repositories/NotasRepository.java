@@ -1,89 +1,79 @@
 package br.com.estoque.infra.repositories;
 
-import javax.inject.Named;
-import javax.inject.Inject;
 import io.agroal.api.AgroalDataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.List; 
+import br.com.estoque.domain.notas.interfaces.INotasService;
+import br.com.estoque.domain.estoque.utils.OnMoveStockListener;
+import br.com.estoque.domain.notas.Notas;
 
-import br.com.estoque.domain.depositos.Depositos;
-import br.com.estoque.domain.depositos.interfaces.IDepositosService;
-
-
-public class DepositoRepository implements IDepositosService {
+public class NotasRepository implements INotasService {
   
     private AgroalDataSource dataSource;
 
-    public DepositoRepository(AgroalDataSource dataSource) {
+    public NotasRepository(AgroalDataSource dataSource) {
         this.dataSource = dataSource;
     }
 
     @Override
-    public List<Depositos> getAllDepositos() {
+    public List<Notas> getAllNotas() {
         try {
-            List<Depositos> listDepositos = new ArrayList<Depositos>();
+            List<Notas> listNotas = new ArrayList<Notas>();
     
             Connection connection = dataSource.getConnection();
-            PreparedStatement ps = 
-                connection.prepareStatement("SELECT * FROM SENAC.ES_DEPOSITOS");
+            PreparedStatement ps = connection.prepareStatement("SELECT * FROM SENAC.ES_NOTA_FISCAL");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 
-                Depositos depositos = new Depositos();
-                depositos.setID(rs.getInt("ID"));
-                depositos.setNOM_DEPOS(rs.getString("NOM_DEPOS"));
+                Notas nota = new Notas();
+                nota.setID(rs.getInt("ID"));
+                nota.setNUM_NOTA(rs.getInt("NUM_NOTA"));
+                nota.setID_FORNEC(rs.getInt("ID_FORNEC"));
+                nota.setSTA_ENTRADA_SAIDA(rs.getInt("STA_ENTRADA_SAIDA"));
 
-                listDepositos.add(depositos);
+                listNotas.add(nota);
             
             }
 
-            return listDepositos;
+            return listNotas;
 
         }catch(SQLException e) {
             throw new Error(e);
         }
     }
 
-    @Override
-    public void deleteDepositos(Integer id) {
-        // TODO Auto-generated method stub
-        
-    }
 
+    //TODO FAZER
     @Override
-    public void createDepositos(Depositos depositos) {
-        try {
-            String query = 
-            "";
-            Connection connection = dataSource.getConnection();
-            PreparedStatement ps = 
-                connection.prepareStatement(query);
-            ps.executeQuery();
-        }catch(SQLException e) {
-            throw new Error(e);
-        }
-        
-    }
-
-    @Override
-    public void updateDepositos(Depositos depositos) {
+    public void insertNota(Notas nota, OnMoveStockListener listener) {
         try{
-            String query = 
-            "UPDATE ES_DEPOSITOS SET " + 
-            "NOM_DEPOS='" + depositos.getNOM_DEPOS() + "'" + 
-            " WHERE ID = " + depositos.getID();
+            String query = "DECLARE V_ID ES_NOTA_FISCAL.ID%TYPE;BEGIN PCKG_CRUD.INSERE_NOTA_PCKG("+nota.getNUM_NOTA()+","+nota.getID_FORNEC()+" ,"+nota.getSTA_ENTRADA_SAIDA()+", V_ID);END;";
             Connection connection = dataSource.getConnection();
-            PreparedStatement ps = 
-                connection.prepareStatement(query);
-            ps.executeQuery();
-        }catch(SQLException e){
+            PreparedStatement ps =  connection.prepareStatement(query); 
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                
+                nota.setID(rs.getInt("V_ID"));
+                System.out.println("AFTEER V_ID"+nota.getID());
+
+                nota.setID(rs.getInt("ID"));
+                System.out.println("AFTEER ID"+nota.getID());
+
+                listener.onReceivedIdNota(nota.getID());
+
+            }
+
+
+         }catch(SQLException e){
             throw new Error(e);
-        }
+        } 
         
     }
+
 }

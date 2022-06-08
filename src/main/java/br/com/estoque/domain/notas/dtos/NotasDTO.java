@@ -1,15 +1,45 @@
-package br.com.estoque.domain.depositos.dtos;
+package br.com.estoque.domain.notas.dtos;
 
-public class DepositosDTO {
+//TABLE es_nota_fiscal 
+public class NotasDTO {
 
     private Number ID;
-    private String NOM_DEPOS;
+    private Number NUM_NOTA;
+    private Number ID_FORNEC;
+    private Number STA_ENTRADA_SAIDA;
 
-    public DepositosDTO(Number ID, String NOM_DEPOS) {
+    public NotasDTO(Number ID, Number NUM_NOTA, Number ID_FORNEC, Number STA_ENTRADA_SAIDA) {
         this.ID = ID;
-        this.NOM_DEPOS = NOM_DEPOS;
+        this.NUM_NOTA = NUM_NOTA;
+        this.ID_FORNEC = ID_FORNEC;
+        this.STA_ENTRADA_SAIDA = STA_ENTRADA_SAIDA;
+     }
+
+    public Number getNUM_NOTA() {
+        return NUM_NOTA;
     }
 
+    public void setNUM_NOTA(Number nUM_NOTA) {
+        NUM_NOTA = nUM_NOTA;
+    }
+
+    public Number getID_FORNEC() {
+        return ID_FORNEC;
+    }
+
+    public void setID_FORNEC(Number iD_FORNEC) {
+        ID_FORNEC = iD_FORNEC;
+    }
+
+    public Number getSTA_ENTRADA_SAIDA() {
+        return STA_ENTRADA_SAIDA;
+    }
+
+    public void setSTA_ENTRADA_SAIDA(Number sTA_ENTRADA_SAIDA) {
+        STA_ENTRADA_SAIDA = sTA_ENTRADA_SAIDA;
+    }
+
+   
     public Number getID() {
         return ID;
     }
@@ -18,12 +48,5 @@ public class DepositosDTO {
         ID = iD;
     }
 
-    public String getNOM_DEPOS() {
-        return NOM_DEPOS;
-    }
-
-    public void setNOM_DEPOS(String nOM_DEPOS) {
-        NOM_DEPOS = nOM_DEPOS;
-    }
     
 }

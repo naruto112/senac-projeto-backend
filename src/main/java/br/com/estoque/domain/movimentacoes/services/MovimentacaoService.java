@@ -1,41 +1,24 @@
-package br.com.estoque.domain.depositos.services;
+package br.com.estoque.domain.movimentacoes.services;
 
-import java.util.List;
+import br.com.estoque.domain.movimentacoes.Movimentacao;
+import br.com.estoque.domain.movimentacoes.interfaces.IMovimentacaoService;
+import br.com.estoque.infra.repositories.MovimentacaoRepository;
 
-import br.com.estoque.domain.depositos.Depositos;
-import br.com.estoque.domain.depositos.interfaces.IDepositosService;
-import br.com.estoque.infra.repositories.DepositoRepository;
-
-public class DepositosService implements IDepositosService {
+public class MovimentacaoService implements IMovimentacaoService {
     
-    private final DepositoRepository depositoRepository;
+    private final MovimentacaoRepository movimentacaoRepository;
 
-    public DepositosService(DepositoRepository depositoRepository) {
-        this.depositoRepository = depositoRepository;
+    public MovimentacaoService(MovimentacaoRepository movimentacaoRepository) {
+        this.movimentacaoRepository = movimentacaoRepository;
     }
 
     @Override
-    public List<Depositos> getAllDepositos() {
-        return this.depositoRepository.getAllDepositos();
+    public void registerMovimentacao(Movimentacao movimentacao) {
+        this.movimentacaoRepository.registerMovimentacao(movimentacao);     
     }
 
-    @Override
-    public void deleteDepositos(Integer id) {
-        this.depositoRepository.deleteDepositos(id);
-        
-    }
 
-    @Override
-    public void createDepositos(Depositos depositos) {
-        this.depositoRepository.createDepositos(depositos);
-        
-    }
 
-    @Override
-    public void updateDepositos(Depositos depositos) {
-        this.depositoRepository.updateDepositos(depositos);
-        
-    }
-    
+
 
 }

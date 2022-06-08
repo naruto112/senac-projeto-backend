@@ -1,14 +1,25 @@
-package br.com.estoque.domain.depositos.dtos;
+package br.com.estoque.domain.estoque.dtos;
 
-public class DepositosDTO {
-
+//TABLE es_estoque 
+public class EstoqueDTO {
+    
     private Number ID;
-    private String NOM_DEPOS;
+    private Number ID_REPOS_PROD;
+    private Number ID_NOTA;
+    private Number ID_MOV;
+    private Number NUM_QTD_PROD;
+    private Number NUM_CUSTO_UN_PROD;
 
-    public DepositosDTO(Number ID, String NOM_DEPOS) {
+    public EstoqueDTO(Number ID, Number ID_REPOS_PROD, Number ID_NOTA, Number ID_MOV, Number NUM_QTD_PROD, Number NUM_CUSTO_UN_PROD) {
         this.ID = ID;
-        this.NOM_DEPOS = NOM_DEPOS;
-    }
+        this.ID_REPOS_PROD = ID_REPOS_PROD;
+        this.ID_NOTA = ID_NOTA;
+        this.ID_MOV = ID_MOV;
+        this.NUM_QTD_PROD = NUM_QTD_PROD;
+        this.NUM_CUSTO_UN_PROD = NUM_CUSTO_UN_PROD;
+
+     }
+
 
     public Number getID() {
         return ID;
@@ -18,12 +29,46 @@ public class DepositosDTO {
         ID = iD;
     }
 
-    public String getNOM_DEPOS() {
-        return NOM_DEPOS;
+    public Number getID_REPOS_PROD() {
+        return ID_REPOS_PROD;
     }
 
-    public void setNOM_DEPOS(String nOM_DEPOS) {
-        NOM_DEPOS = nOM_DEPOS;
+    public void setID_REPOS_PROD(Number iD_REPOS_PROD) {
+        ID_REPOS_PROD = iD_REPOS_PROD;
     }
+
+    public Number getID_NOTA() {
+        return ID_NOTA;
+    }
+
+    public void setID_NOTA(Number iD_NOTA) {
+        ID_NOTA = iD_NOTA;
+    }
+
+    public Number getID_MOV() {
+        return ID_MOV;
+    }
+
+    public void setID_MOV(Number iD_MOV) {
+        ID_MOV = iD_MOV;
+    }
+
+    public Number getNUM_QTD_PROD() {
+        return NUM_QTD_PROD;
+    }
+
+    public void setNUM_QTD_PROD(Number nUM_QTD_PROD) {
+        NUM_QTD_PROD = nUM_QTD_PROD;
+    }
+
+    public Number getNUM_CUSTO_UN_PROD() {
+        return NUM_CUSTO_UN_PROD;
+    }
+
+    public void setNUM_CUSTO_UN_PROD(Number nUM_CUSTO_UN_PROD) {
+        NUM_CUSTO_UN_PROD = nUM_CUSTO_UN_PROD;
+    }
+
+
     
 }

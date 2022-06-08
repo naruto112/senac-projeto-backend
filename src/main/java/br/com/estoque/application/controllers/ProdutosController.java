@@ -29,8 +29,6 @@ public class ProdutosController {
     @Named("oracle")
     AgroalDataSource dataSource;
 
-
-
     @GET
     public Response get() {
         return Response.ok(ProdutoServiceAll.execute(dataSource)).build();
@@ -51,6 +49,7 @@ public class ProdutosController {
     public void delete(@PathParam("id") Integer id) {
        ProdutoServiceDelete.execute(dataSource, id);
     }
+
 }
 
 
