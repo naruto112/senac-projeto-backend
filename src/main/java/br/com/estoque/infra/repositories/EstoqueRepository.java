@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
  
-import br.com.estoque.domain.estoque.Estoque;
 import br.com.estoque.domain.estoque.body.MovementBody;
 import br.com.estoque.domain.estoque.interfaces.IEstoqueService;
  
@@ -21,7 +20,7 @@ public class EstoqueRepository implements IEstoqueService {
     @Override
     public void movimentaEstoque(MovementBody body) {
          try{
-            String query = "DECLARE R_NUM_ID_E ES_ESTOQUE.ID%TYPE;R_NUM_ID_N ES_NOTA_FISCAL.ID%TYPE; BEGIN  PCKG_CRUD. INSERE_ESTOQUE("+body.getId_Mov()+","+body.getNumQtd()+", "+body.getiD_Deposito()+", "+body.getiD_produto()+", "+body.getQtdRepos()+", R_NUM_ID_E, R_NUM_ID_N, "+body.getPrice()+","+(body.isHasNota() ? (int) ((Math.random() * (999999 - 555555)) + 555555) : "")+", "+body.getiD_Fornecedor()+", "+(body.isEnter() ? 0 : 1)+");  END;";
+            String query = "DECLARE R_NUM_ID_E ES_ESTOQUE.ID%TYPE;R_NUM_ID_N ES_NOTA_FISCAL.ID%TYPE; BEGIN  PCKG_CRUD. INSERE_ESTOQUE("+body.getId_Mov()+","+body.getNumQtd()+", "+body.getiD_Deposito()+", "+body.getiD_produto()+", "+body.getQtdRepos()+", R_NUM_ID_E, R_NUM_ID_N, "+body.getPrice()+","+(body.isHasNota() ? MovementBody.getNumNota() : "")+", "+body.getiD_Fornecedor()+", "+body.getEnterCode()+");  END;";
             Connection connection = dataSource.getConnection();
             PreparedStatement ps =  connection.prepareStatement(query); 
             ResultSet rs = ps.executeQuery();

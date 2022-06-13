@@ -5,23 +5,26 @@ public class MovementBody {
     private Number iD_produto;
     private Number iD_Deposito;
     private Number iD_Fornecedor;
+
     private boolean hasNota;
     private boolean isEntrada;
-    private int qtd;
-    private Double price;
-
+    
+    private int nUM_QTD;
+    private int nUM_QTD_REPOS;
+    
+    private Double nUM_PROD_VALOR_NOTA;
 
     public MovementBody(){};
 
-    public MovementBody(Number iD_prod, Number iD_depos, Number iD_fornec, boolean hasNota, boolean isEnter, int quantity, Double value){
+    public MovementBody(Number iD_prod, Number iD_depos, Number iD_fornec, boolean hasNota, boolean isEnter, int quantity, int quantityReposition, Double price){
         this.iD_produto=iD_prod;
         this.iD_Deposito = iD_depos;
         this.iD_Fornecedor = iD_fornec;
         this.hasNota = hasNota;
         this.isEntrada = isEnter;
-        this.qtd = quantity;
-        this.price = value;
-
+        this.nUM_QTD = quantity;
+        this.nUM_QTD_REPOS = quantityReposition;
+        this.nUM_PROD_VALOR_NOTA = price;
     }
 
     public Number getiD_produto() {
@@ -54,17 +57,39 @@ public class MovementBody {
     public void setEnter(boolean isEnter) {
         this.isEntrada = isEnter;
     }
-    public int getQtd() {
-        return qtd;
+    public int getNumQtd() {
+        return nUM_QTD;
     }
-    public void setQtd(int qtd) {
-        this.qtd = qtd;
+    public void setNumQtd(int qtd) {
+        this.nUM_QTD = qtd;
     }
     public Double getPrice() {
-        return price;
+        return nUM_PROD_VALOR_NOTA;
     }
     public void setPrice(Double price) {
-        this.price = price;
+        this.nUM_PROD_VALOR_NOTA = price;
+    }
+
+    //todo validar com o djalma
+    public int getId_Mov() {
+        return (this.isEnter() && hasNota) ? 1 : (!this.isEnter() && hasNota) ? 2 : (this.isEnter() && !hasNota) ? 3 : 4;
+    }
+
+    public int getQtdRepos() {
+        return nUM_QTD_REPOS;
+    }
+
+    public void setQtdRepos(int qtdRepos) {
+        this.nUM_QTD_REPOS = qtdRepos;
+    }
+
+    //todo validar com o djalma
+    public int getEnterCode() {
+        return (isEnter() ? 0 :1);
+    }
+
+    public static int getNumNota(){
+        return  (int) ((Math.random() * (999999 - 555555)) + 555555);
     }
 
 }
