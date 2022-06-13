@@ -1,13 +1,12 @@
 package br.com.estoque.domain.notas.interfaces;
 
-import br.com.estoque.domain.estoque.utils.OnMoveStockListener;
-import br.com.estoque.domain.notas.*;
+ import br.com.estoque.domain.notas.*;
 
 import java.util.List;
 
 public interface INotasService {
     List<Notas> getAllNotas();
 
-    void insertNota(Notas nota, OnMoveStockListener listener);
+    void insertNota(Notas nota );
     
 }

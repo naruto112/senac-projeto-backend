@@ -7,7 +7,6 @@ import br.com.estoque.infra.repositories.UsuarioRepository;
 import io.agroal.api.AgroalDataSource;
 
 
-
 public class UsuarioServiceLogin {
 
     public static UsuarioTokenDTO execute(AgroalDataSource dataSource, Usuario usuario, String secret) {
@@ -17,7 +16,6 @@ public class UsuarioServiceLogin {
             UsuarioTokenDTO acessToken = new UsuarioTokenDTO();
 
             if (CryptoHash.checkedHash(usuario.getSENHA(), usuarioHashed)) {
-                
                 acessToken.setACESS_TOKEN(CryptoHash.jwt(usuarioHashed, secret));
                 acessToken.setMESSAGE("Authorized");
                 return acessToken;

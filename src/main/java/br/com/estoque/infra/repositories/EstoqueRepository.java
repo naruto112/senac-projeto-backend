@@ -7,9 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
  
 import br.com.estoque.domain.estoque.Estoque;
+import br.com.estoque.domain.estoque.body.MovementBody;
 import br.com.estoque.domain.estoque.interfaces.IEstoqueService;
-import br.com.estoque.domain.estoque.utils.OnMoveStockListener;
-
+ 
 public class EstoqueRepository implements IEstoqueService {
   
     private AgroalDataSource dataSource;
@@ -18,26 +18,20 @@ public class EstoqueRepository implements IEstoqueService {
         this.dataSource = dataSource;
     }
 
-     @Override
-    public void movimentaEstoque(Estoque estoque, OnMoveStockListener listener) {
+    @Override
+    public void movimentaEstoque(MovementBody body) {
          try{
-            String query = "DECLARE V_ID ES_ESTOQUE.ID%TYPE;BEGIN PCKG_CRUD.INSERE_ESTOQUE("+estoque.getID_MOV()+","+estoque.getNUM_QTD_PROD()+","+estoque.getID_REPOS_PROD()+",V_ID,"+estoque.getNUM_CUSTO_UN_PROD()+", PRICE);END;";
+            String query = "DECLARE R_NUM_ID_E ES_ESTOQUE.ID%TYPE;R_NUM_ID_N ES_NOTA_FISCAL.ID%TYPE; BEGIN  PCKG_CRUD. INSERE_ESTOQUE("+body.getId_Mov()+","+body.getNumQtd()+", "+body.getiD_Deposito()+", "+body.getiD_produto()+", "+body.getQtdRepos()+", R_NUM_ID_E, R_NUM_ID_N, "+body.getPrice()+","+(body.isHasNota() ? (int) ((Math.random() * (999999 - 555555)) + 555555) : "")+", "+body.getiD_Fornecedor()+", "+(body.isEnter() ? 0 : 1)+");  END;";
             Connection connection = dataSource.getConnection();
             PreparedStatement ps =  connection.prepareStatement(query); 
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 
-                estoque.setID(rs.getInt("V_ID"));
-                System.out.println("AFTEER V_ID"+estoque.getID());
+                 System.out.println("AFTEER V_ID"+rs.getInt("V_ID"));
 
-                estoque.setID(rs.getInt("ID"));
-                System.out.println("AFTEER ID"+estoque.getID());
-
-
-                //todo
-               // listener.onReceivedIdNota(nota.getID());
-
+                 System.out.println("AFTEER ID"+rs.getInt("ID"));
+ 
             }
 
 

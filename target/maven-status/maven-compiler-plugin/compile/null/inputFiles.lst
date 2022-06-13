@@ -52,7 +52,6 @@ C:\Users\bruno\Documents\senac-projeto-backend\src\main\java\br\com\estoque\appl
 C:\Users\bruno\Documents\senac-projeto-backend\src\main\java\br\com\estoque\infra\services\depositos\DepositoServiceInsert.java
 C:\Users\bruno\Documents\senac-projeto-backend\src\main\java\br\com\estoque\domain\notas\interfaces\INotasService.java
 C:\Users\bruno\Documents\senac-projeto-backend\src\main\java\br\com\estoque\application\controllers\ProdutosController.java
-C:\Users\bruno\Documents\senac-projeto-backend\src\main\java\br\com\estoque\domain\estoque\utils\OnMoveStockListener.java
 C:\Users\bruno\Documents\senac-projeto-backend\src\main\java\br\com\estoque\domain\usuarios\interfaces\IUsuarioService.java
 C:\Users\bruno\Documents\senac-projeto-backend\src\main\java\br\com\estoque\infra\services\usuarios\UsuarioServiceUpdate.java
 C:\Users\bruno\Documents\senac-projeto-backend\src\main\java\br\com\estoque\domain\notas\Notas.java

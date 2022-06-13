@@ -8,8 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import br.com.estoque.domain.estoque.Estoque;
-import br.com.estoque.domain.estoque.utils.OnMoveStockListener;
 import br.com.estoque.domain.reposprod.ReposProd;
 import br.com.estoque.domain.reposprod.interfaces.IReposProdService;
 
@@ -23,9 +21,9 @@ public class ReposProdRepository implements IReposProdService {
         this.dataSource = dataSource;
     }
 
-    //TODO FAZEndo
+
     @Override
-    public void boundReposWithProduct(ReposProd reposProd ,OnMoveStockListener listener ) {
+    public void boundReposWithProduct(ReposProd reposProd  ) {
         try{
             String query = "DECLARE V_ID ES_REPOS_PROD.ID%TYPE;BEGIN PCKG_CRUD.REPOS_PROD("+reposProd.getID_PROD()+","+ reposProd.getID_DEPOS()+ " ,0, V_ID);END;";
             Connection connection = dataSource.getConnection();
@@ -39,13 +37,10 @@ public class ReposProdRepository implements IReposProdService {
 
                 reposProd.setID(rs.getInt("ID"));
                 System.out.println("AFTEER ID"+reposProd.getID());
-
-                listener.onReceivedIdReposProd(reposProd.getID());
-
+ 
             }
 
-
-         }catch(SQLException e){
+        }catch(SQLException e){
             throw new Error(e);
         }        
     }

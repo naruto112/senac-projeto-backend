@@ -8,8 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List; 
 import br.com.estoque.domain.notas.interfaces.INotasService;
-import br.com.estoque.domain.estoque.utils.OnMoveStockListener;
-import br.com.estoque.domain.notas.Notas;
+ import br.com.estoque.domain.notas.Notas;
 
 public class NotasRepository implements INotasService {
   
@@ -48,9 +47,8 @@ public class NotasRepository implements INotasService {
     }
 
 
-    //TODO FAZER
     @Override
-    public void insertNota(Notas nota, OnMoveStockListener listener) {
+    public void insertNota(Notas nota ) {
         try{
             String query = "DECLARE V_ID ES_NOTA_FISCAL.ID%TYPE;BEGIN PCKG_CRUD.INSERE_NOTA_PCKG("+nota.getNUM_NOTA()+","+nota.getID_FORNEC()+" ,"+nota.getSTA_ENTRADA_SAIDA()+", V_ID);END;";
             Connection connection = dataSource.getConnection();
@@ -65,8 +63,7 @@ public class NotasRepository implements INotasService {
                 nota.setID(rs.getInt("ID"));
                 System.out.println("AFTEER ID"+nota.getID());
 
-                listener.onReceivedIdNota(nota.getID());
-
+ 
             }
 
 

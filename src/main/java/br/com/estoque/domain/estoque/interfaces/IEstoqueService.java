@@ -1,8 +1,7 @@
 package br.com.estoque.domain.estoque.interfaces;
 
-import br.com.estoque.domain.estoque.Estoque;
-import br.com.estoque.domain.estoque.utils.OnMoveStockListener;
- 
+ import br.com.estoque.domain.estoque.body.MovementBody;
+  
 public interface IEstoqueService {
-    void movimentaEstoque (Estoque estoque,OnMoveStockListener listener);
+    void movimentaEstoque (MovementBody body );
 }

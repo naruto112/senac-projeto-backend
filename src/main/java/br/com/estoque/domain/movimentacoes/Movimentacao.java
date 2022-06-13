@@ -4,12 +4,11 @@ import br.com.estoque.domain.movimentacoes.dtos.MovimentacaoDTO;
  
 public class Movimentacao {
 
-
     private Number ID;
     private String NOM_MOV;
 
-
-     public Movimentacao(){};
+    public Movimentacao(){};
+   
     public Movimentacao(Number ID, String nOM_MOv) {
         this.ID = ID;
         this.NOM_MOV = nOM_MOv;
@@ -20,8 +19,6 @@ public class Movimentacao {
          this.ID = movimentacaoDTO.getID();
          this.NOM_MOV = movimentacaoDTO.getNOM_MOV();
      }
-
-    
 
     public Number getID() {
         return ID;

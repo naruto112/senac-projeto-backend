@@ -6,8 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import br.com.estoque.domain.estoque.utils.OnMoveStockListener;
-import br.com.estoque.domain.movimentacoes.Movimentacao;
+ import br.com.estoque.domain.movimentacoes.Movimentacao;
 import br.com.estoque.domain.movimentacoes.interfaces.IMovimentacaoService;
  
 
@@ -21,7 +20,7 @@ public class MovimentacaoRepository implements IMovimentacaoService {
 
     //TODO FAZER
     @Override
-    public void insertMovimentacao(Movimentacao movimentacao,OnMoveStockListener listener) {
+    public void insertMovimentacao(Movimentacao movimentacao ) {
         try{
             String query = "DECLARE V_ID ES_MOVIMENTACOES.ID%TYPE;BEGIN PCKG_CRUD.INSERE_COD_MOV_PCKG("+movimentacao.getNOM_MOV()+", V_ID);END;";
             Connection connection = dataSource.getConnection();
@@ -36,7 +35,7 @@ public class MovimentacaoRepository implements IMovimentacaoService {
                 movimentacao.setID(rs.getInt("ID"));
                 System.out.println("AFTEER ID"+movimentacao.getID());
 
-                listener.onReceivedIdMov(movimentacao.getID());
+                
 
             }
 
