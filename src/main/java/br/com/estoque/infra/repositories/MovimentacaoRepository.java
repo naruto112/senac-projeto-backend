@@ -18,7 +18,6 @@ public class MovimentacaoRepository implements IMovimentacaoService {
         this.dataSource = dataSource;
     }
 
-    //TODO FAZER
     @Override
     public void insertMovimentacao(Movimentacao movimentacao ) {
         try{
@@ -34,8 +33,6 @@ public class MovimentacaoRepository implements IMovimentacaoService {
 
                 movimentacao.setID(rs.getInt("ID"));
                 System.out.println("AFTEER ID"+movimentacao.getID());
-
-                
 
             }
 
