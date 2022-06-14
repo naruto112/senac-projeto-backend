@@ -13,8 +13,8 @@ public class MovimentacaoService implements IMovimentacaoService {
     }
 
     @Override
-    public void registerMovimentacao(Movimentacao movimentacao) {
-        this.movimentacaoRepository.registerMovimentacao(movimentacao);     
+    public void insertMovimentacao(Movimentacao movimentacao) {
+        this.movimentacaoRepository.insertMovimentacao(movimentacao);     
     }
 
 

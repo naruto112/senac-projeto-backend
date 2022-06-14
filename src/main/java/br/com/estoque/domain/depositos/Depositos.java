@@ -5,14 +5,14 @@ import br.com.estoque.domain.depositos.dtos.DepositosDTO;
 public class Depositos {
     
     private Number ID;
-    private String NOM_DEPOS;
+    private String nom_DEPOS;
 
     public Depositos() {
     }
 
-    public Depositos(Number ID, String NOM_DEPOS) {
+    public Depositos(Number ID, String nom_DEPOS) {
         this.ID = ID;
-        this.NOM_DEPOS = NOM_DEPOS;
+        this.nom_DEPOS = nom_DEPOS;
     }
 
     public Number getID() {
@@ -24,16 +24,16 @@ public class Depositos {
     }
 
     public String getNOM_DEPOS() {
-        return NOM_DEPOS;
+        return nom_DEPOS;
     }
 
     public void setNOM_DEPOS(String nOM_DEPOS) {
-        NOM_DEPOS = nOM_DEPOS;
+        nom_DEPOS = nOM_DEPOS;
     }
 
     public Depositos(DepositosDTO depositosDTO) {
         this.ID = depositosDTO.getID();
-        this.NOM_DEPOS = depositosDTO.getNOM_DEPOS();
+        this.nom_DEPOS = depositosDTO.getNOM_DEPOS();
     }
 
 

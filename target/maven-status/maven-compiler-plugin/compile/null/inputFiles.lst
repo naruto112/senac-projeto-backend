@@ -14,6 +14,7 @@ C:\Users\bruno\Documents\senac-projeto-backend\src\main\java\br\com\estoque\infr
 C:\Users\bruno\Documents\senac-projeto-backend\src\main\java\br\com\estoque\domain\estoque\dtos\EstoqueDTO.java
 C:\Users\bruno\Documents\senac-projeto-backend\src\main\java\br\com\estoque\infra\repositories\ProdutoRepository.java
 C:\Users\bruno\Documents\senac-projeto-backend\src\main\java\br\com\estoque\domain\movimentacoes\services\MovimentacaoService.java
+C:\Users\bruno\Documents\senac-projeto-backend\src\main\java\br\com\estoque\application\controllers\NotasController.java
 C:\Users\bruno\Documents\senac-projeto-backend\src\main\java\br\com\estoque\infra\services\usuarios\UsuarioServiceInsert.java
 C:\Users\bruno\Documents\senac-projeto-backend\src\main\java\br\com\estoque\domain\usuarios\services\UsuarioService.java
 C:\Users\bruno\Documents\senac-projeto-backend\src\main\java\br\com\estoque\domain\produtos\interfaces\IProdutoService.java
@@ -39,7 +40,6 @@ C:\Users\bruno\Documents\senac-projeto-backend\src\main\java\br\com\estoque\doma
 C:\Users\bruno\Documents\senac-projeto-backend\src\main\java\br\com\estoque\domain\estoque\Estoque.java
 C:\Users\bruno\Documents\senac-projeto-backend\src\main\java\br\com\estoque\domain\notas\dtos\NotasDTO.java
 C:\Users\bruno\Documents\senac-projeto-backend\src\main\java\br\com\estoque\infra\services\fornecedores\FornecedorServiceUpdate.java
-C:\Users\bruno\Documents\senac-projeto-backend\src\main\java\br\com\estoque\domain\estoque\utils\EstoqueHandler.java
 C:\Users\bruno\Documents\senac-projeto-backend\src\main\java\br\com\estoque\infra\services\fornecedores\FornecedorServiceAll.java
 C:\Users\bruno\Documents\senac-projeto-backend\src\main\java\br\com\estoque\infra\services\usuarios\UsuarioServiceAll.java
 C:\Users\bruno\Documents\senac-projeto-backend\src\main\java\br\com\estoque\infra\services\usuarios\UsuarioServiceLogin.java

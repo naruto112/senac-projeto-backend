@@ -20,21 +20,14 @@ public class EstoqueRepository implements IEstoqueService {
     @Override
     public void movimentaEstoque(MovementBody body) {
          try{
-            String query = "DECLARE R_NUM_ID_E ES_ESTOQUE.ID%TYPE;R_NUM_ID_N ES_NOTA_FISCAL.ID%TYPE; BEGIN  PCKG_CRUD. INSERE_ESTOQUE("+body.getId_Mov()+","+body.getNumQtd()+", "+body.getiD_Deposito()+", "+body.getiD_produto()+", "+body.getQtdRepos()+", R_NUM_ID_E, R_NUM_ID_N, "+body.getPrice()+","+(body.isHasNota() ? MovementBody.getNumNota() : "")+", "+body.getiD_Fornecedor()+", "+body.getEnterCode()+");  END;";
+            String query = "DECLARE R_NUM_ID_E ES_ESTOQUE.ID%TYPE;R_NUM_ID_N ES_NOTA_FISCAL.ID%TYPE; BEGIN  PCKG_CRUD. INSERE_ESTOQUE("+body.getId_Mov()+","+body.getQuantity()+", "+body.getIdDeposito()+", "+body.getIdProduto()+", "+body.getQuantityReposition()+", R_NUM_ID_E, R_NUM_ID_N, "+body.getPrice()+","+(body.isHasNota() ? MovementBody.getNumNota() : "")+", "+body.getIdFornecedor()+", "+body.getEnterCode()+");  END;";
             Connection connection = dataSource.getConnection();
             PreparedStatement ps =  connection.prepareStatement(query); 
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-                
-                 System.out.println("AFTEER V_ID"+rs.getInt("V_ID"));
-
-                 System.out.println("AFTEER ID"+rs.getInt("ID"));
- 
-            }
+            
+            ps.executeQuery();
 
 
-         }catch(SQLException e){
+         } catch(SQLException e){
             throw new Error(e);
         } 
         

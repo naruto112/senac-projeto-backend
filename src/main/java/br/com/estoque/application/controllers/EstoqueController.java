@@ -18,7 +18,7 @@ import io.agroal.api.AgroalDataSource;
 
 @Path("/estoque")
 @Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON )
+@Consumes(MediaType.APPLICATION_JSON)
 public class EstoqueController {   
     @Inject
     @Named("oracle")
@@ -30,20 +30,8 @@ public class EstoqueController {
     }
 
     @POST
-    public void post( MovementBody body) {
-     //   handler.addOnStockCompletedListener(new OnStockCompletedListener(){
-
-            //todo lembrar depois como criar o listener
-
-        //EstoqueServiceUpdate.execute(dataSource, estoque);
-
-      //  })
-
-      
-
-
-        EstoqueServiceUpdate.execute(dataSource, body);
-        
+    public void post( MovementBody body) {  
+       EstoqueServiceUpdate.execute(dataSource, body);
      }
 
 }
