@@ -19,7 +19,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Build Java Quarkus
-        run: mvn clean package
+        run: mvn clean package -Dmaven.test.skip=true
 
   deploy:
     needs:
