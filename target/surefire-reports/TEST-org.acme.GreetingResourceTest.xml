@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.acme.GreetingResourceTest" time="4.14" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.acme.GreetingResourceTest" time="2.852" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="18"/>
     <property name="test.url" value="http://localhost:8081"/>
@@ -16,7 +16,7 @@
     <property name="user.country" value="BR"/>
     <property name="mp.openapi.extensions.smallrye.defaultProduces" value="application/json"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-18.0.1.1.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/renato.dev/Desktop/senac-projeto-backend/target/surefire/surefirebooter3051715621943165746.jar /Users/renato.dev/Desktop/senac-projeto-backend/target/surefire 2022-06-17T00-38-54_392-jvmRun1 surefire7079004096792538071tmp surefire_012131382376649163216tmp"/>
+    <property name="sun.java.command" value="/Users/renato.dev/Desktop/senac-projeto-backend/target/surefire/surefirebooter5649829668882452802.jar /Users/renato.dev/Desktop/senac-projeto-backend/target/surefire 2022-06-17T18-34-07_343-jvmRun1 surefire70313797094379339tmp surefire_04865765728716535642tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="maven.home" value="/Users/renato.dev/.m2/wrapper/dists/apache-maven-3.8.4-bin/52ccbt68d252mdldqsfsn03jlf/apache-maven-3.8.4"/>
@@ -36,7 +36,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/renato.dev/Desktop/senac-projeto-backend/target/surefire/surefirebooter3051715621943165746.jar"/>
+    <property name="surefire.real.class.path" value="/Users/renato.dev/Desktop/senac-projeto-backend/target/surefire/surefirebooter5649829668882452802.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="18.0.1.1+2-6"/>
@@ -65,20 +65,20 @@
     <property name="vertx.disableTCCL" value="true"/>
     <property name="java.vm.version" value="18.0.1.1+2-6"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
-    <property name="io.netty.machineId" value="e0:d0:25:28:47:a2:1e:73"/>
+    <property name="io.netty.machineId" value="f3:9f:02:67:df:01:ba:5e"/>
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="62.0"/>
     <property name="mp.openapi.extensions.smallrye.defaultConsumes" value="application/json"/>
   </properties>
-  <testcase name="testHelloEndpoint" classname="org.acme.GreetingResourceTest" time="0.339">
-    <system-out><![CDATA[2022-06-17 00:38:57,367 INFO  [org.jbo.threads] (main) JBoss Threads version 3.4.2.Final
-2022-06-17 00:38:57,549 WARN  [io.qua.dat.dep.dev.DevServicesDatasourceProcessor] (build-38) Unable to determine a database type for default datasource
-2022-06-17 00:38:57,549 WARN  [io.qua.dat.dep.dev.DevServicesDatasourceProcessor] (build-38) Unable to start devservices for oracle as this datasource type (oracle) does not support devservices
-2022-06-17 00:38:57,561 WARN  [io.qua.hib.orm.dep.HibernateOrmProcessor] (build-41) Hibernate ORM is disabled because no JPA entities were found
-2022-06-17 00:38:58,545 WARN  [io.qua.agr.run.AgroalConnectionConfigurer] (main) Agroal does not support detecting if a connection is still usable after an exception for database kind: oracle
-2022-06-17 00:38:58,879 INFO  [io.quarkus] (main) code-with-quarkus 1.0.0-SNAPSHOT on JVM (powered by Quarkus 2.9.0.Final) started in 2.015s. Listening on: http://localhost:8081 and https://localhost:8444
-2022-06-17 00:38:58,879 INFO  [io.quarkus] (main) Profile test activated. 
-2022-06-17 00:38:58,879 INFO  [io.quarkus] (main) Installed features: [agroal, cdi, hibernate-orm, narayana-jta, resteasy, resteasy-jackson, security, security-jpa, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
+  <testcase name="testHelloEndpoint" classname="org.acme.GreetingResourceTest" time="0.34">
+    <system-out><![CDATA[2022-06-17 18:34:09,088 INFO  [org.jbo.threads] (main) JBoss Threads version 3.4.2.Final
+2022-06-17 18:34:09,323 WARN  [io.qua.dat.dep.dev.DevServicesDatasourceProcessor] (build-6) Unable to determine a database type for default datasource
+2022-06-17 18:34:09,324 WARN  [io.qua.dat.dep.dev.DevServicesDatasourceProcessor] (build-6) Unable to start devservices for oracle as this datasource type (oracle) does not support devservices
+2022-06-17 18:34:09,347 WARN  [io.qua.hib.orm.dep.HibernateOrmProcessor] (build-33) Hibernate ORM is disabled because no JPA entities were found
+2022-06-17 18:34:10,379 WARN  [io.qua.agr.run.AgroalConnectionConfigurer] (main) Agroal does not support detecting if a connection is still usable after an exception for database kind: oracle
+2022-06-17 18:34:10,519 INFO  [io.quarkus] (main) code-with-quarkus 1.0.0-SNAPSHOT on JVM (powered by Quarkus 2.9.0.Final) started in 1.931s. Listening on: http://localhost:8081
+2022-06-17 18:34:10,520 INFO  [io.quarkus] (main) Profile test activated. 
+2022-06-17 18:34:10,520 INFO  [io.quarkus] (main) Installed features: [agroal, cdi, hibernate-orm, narayana-jta, resteasy, resteasy-jackson, security, security-jpa, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
 ]]></system-out>
   </testcase>
 </testsuite>
