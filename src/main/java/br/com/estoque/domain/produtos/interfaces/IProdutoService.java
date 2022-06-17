@@ -4,7 +4,6 @@ import java.util.List;
 
 import br.com.estoque.domain.produtos.Produto;
 
-
 public interface IProdutoService {
     List<Produto> getAllProdutos();
     

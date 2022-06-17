@@ -52,6 +52,7 @@ public class DepositoRepository implements IDepositosService {
 
     @Override
     public void deleteDepositos(Integer id) {
+ 
         try {
             String query = 
             "DELETE ES_DEPOSITOS WHERE ID =" +id;
@@ -63,21 +64,21 @@ public class DepositoRepository implements IDepositosService {
             throw new Error(e);
         }
         
-    }
+     }
 
     @Override
     public void createDepositos(Depositos depositos) {
         try {
+ 
             String query = 
             "DECLARE V_ID ES_DEPOSITOS.ID%TYPE;BEGIN PCKG_CRUD.INSERE_DEPOS_PCKG('"+depositos.getNOM_DEPOS()+"', V_ID);END;";
-            Connection connection = dataSource.getConnection();
+             Connection connection = dataSource.getConnection();
             PreparedStatement ps = 
                 connection.prepareStatement(query);
             ps.executeQuery();
         }catch(SQLException e) {
             throw new Error(e);
         }
-        
     }
 
     @Override

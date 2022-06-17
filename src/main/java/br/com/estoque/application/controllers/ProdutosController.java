@@ -32,12 +32,10 @@ import io.agroal.api.AgroalDataSource;
 public class ProdutosController {   
     @Inject
     @Named("oracle")
-    AgroalDataSource dataSource;
-
+    AgroalDataSource dataSource; 
     @ConfigProperty(name = "crypto.secret") 
     String secret;
 
-    
     @GET
     public Response get(@HeaderParam("Authorization") String header) {
         try {
@@ -97,6 +95,7 @@ public class ProdutosController {
             return Response.status(Status.UNAUTHORIZED).entity("Not Authorized").build();
         }
     }
+
 }
 
 
