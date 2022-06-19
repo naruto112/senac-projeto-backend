@@ -59,4 +59,4 @@ jobs:
             sudo docker stop java-container-quarkus
             sudo docker rm java-container-quarkus
             sudo docker build -t java-img-quarkus .
-            sudo docker run -d --name java-container-quarkus -p 443:443 java-img-quarkus:latest
+            sudo docker run -d --name java-container-quarkus -p 80:80 java-img-quarkus:latest

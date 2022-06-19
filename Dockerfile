@@ -11,6 +11,6 @@ COPY --from=MAVEN_TOOL_CHAIN /tmp/target/quarkus-app/*.jar /deployments/
 COPY --from=MAVEN_TOOL_CHAIN /tmp/target/quarkus-app/app/ /deployments/app/
 COPY --from=MAVEN_TOOL_CHAIN /tmp/target/quarkus-app/quarkus/ /deployments/quarkus/
 
-EXPOSE 443
+EXPOSE 80
 ENV AB_OFF=disabled
 
