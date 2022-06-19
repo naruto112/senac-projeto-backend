@@ -40,6 +40,9 @@ public class ReposProdRepository implements IReposProdService {
  
             }
 
+            ps.close();
+            connection.close();
+
         }catch(SQLException e){
             throw new Error(e);
         }        

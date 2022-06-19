@@ -36,7 +36,9 @@ public class MovimentacaoRepository implements IMovimentacaoService {
 
             }
 
-
+            ps.close();
+            connection.close();
+            
          }catch(SQLException e){
             throw new Error(e);
         } 

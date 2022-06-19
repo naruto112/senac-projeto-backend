@@ -39,6 +39,9 @@ public class NotasRepository implements INotasService {
             
             }
 
+            ps.close();
+            connection.close();
+
             return listNotas;
 
         }catch(SQLException e) {
@@ -66,6 +69,8 @@ public class NotasRepository implements INotasService {
  
             }
 
+            ps.close();
+            connection.close();
 
          }catch(SQLException e){
             throw new Error(e);

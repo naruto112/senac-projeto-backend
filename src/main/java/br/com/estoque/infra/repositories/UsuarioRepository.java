@@ -39,6 +39,9 @@ public class UsuarioRepository implements IUsuarioService{
     
             }
 
+            ps.close();
+            connection.close();
+
             return listUsuarios;
         }catch(SQLException e) {
             throw new Error(e);
@@ -55,6 +58,10 @@ public class UsuarioRepository implements IUsuarioService{
             PreparedStatement ps = 
                 connection.prepareStatement(query);
             ps.executeQuery();
+            
+            ps.close();
+            connection.close();
+
         }catch(SQLException e) {
             throw new Error(e);
         }
@@ -72,6 +79,10 @@ public class UsuarioRepository implements IUsuarioService{
             PreparedStatement ps = 
                 connection.prepareStatement(query);
             ps.executeQuery();
+
+            ps.close();
+            connection.close();
+
         }catch(SQLException e){
             throw new Error(e);
         }
@@ -92,6 +103,9 @@ public class UsuarioRepository implements IUsuarioService{
             while(rs.next()) {
                 senhaHashed = rs.getString("SENHA");
             }
+
+            ps.close();
+            connection.close();
 
             return senhaHashed;
         }catch(SQLException e) {

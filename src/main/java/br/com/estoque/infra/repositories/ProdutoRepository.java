@@ -43,6 +43,9 @@ public class ProdutoRepository implements IProdutoService{
             
             }
 
+            ps.close();
+            connection.close();
+
             return listProdutos;
 
         }catch(SQLException e) {
@@ -60,6 +63,10 @@ public class ProdutoRepository implements IProdutoService{
             PreparedStatement ps = 
                 connection.prepareStatement(query);
             ps.executeQuery();
+
+            ps.close();
+            connection.close();
+
         }catch(SQLException e) {
             throw new Error(e);
         }
@@ -74,6 +81,10 @@ public class ProdutoRepository implements IProdutoService{
             PreparedStatement ps = 
                 connection.prepareStatement(query);
             ps.executeQuery();
+
+            ps.close();
+            connection.close();
+
         }catch(SQLException e) {
             throw new Error(e);
         }
@@ -96,6 +107,10 @@ public class ProdutoRepository implements IProdutoService{
             PreparedStatement ps = 
                 connection.prepareStatement(query);
             ps.executeQuery();
+
+            ps.close();
+            connection.close();
+
         }catch(SQLException e){
             throw new Error(e);
         }

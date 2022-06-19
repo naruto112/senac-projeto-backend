@@ -41,6 +41,8 @@ public class DepositoRepository implements IDepositosService {
                 listDepositos.add(depositos);
             
             }
+            ps.close();
+            connection.close();
 
             return listDepositos;
 
@@ -60,6 +62,10 @@ public class DepositoRepository implements IDepositosService {
             PreparedStatement ps = 
                 connection.prepareStatement(query);
             ps.executeQuery();
+
+            ps.close();
+            connection.close();
+
         }catch(SQLException e) {
             throw new Error(e);
         }
@@ -76,6 +82,9 @@ public class DepositoRepository implements IDepositosService {
             PreparedStatement ps = 
                 connection.prepareStatement(query);
             ps.executeQuery();
+
+            ps.close();
+            connection.close();
         }catch(SQLException e) {
             throw new Error(e);
         }
@@ -92,6 +101,10 @@ public class DepositoRepository implements IDepositosService {
             PreparedStatement ps = 
                 connection.prepareStatement(query);
             ps.executeQuery();
+
+            ps.close();
+            connection.close();
+
         }catch(SQLException e){
             throw new Error(e);
         }

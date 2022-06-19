@@ -26,6 +26,8 @@ public class EstoqueRepository implements IEstoqueService {
             
             ps.executeQuery();
 
+            ps.close();
+            connection.close();
 
          } catch(SQLException e){
             throw new Error(e);

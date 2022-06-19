@@ -40,6 +40,9 @@ public class FornecedorRepository implements IFornecedorService{
             
             }
 
+            ps.close();
+            connection.close();
+
             return listFornecedores;
 
         }catch(SQLException e) {
@@ -57,6 +60,9 @@ public class FornecedorRepository implements IFornecedorService{
             PreparedStatement ps = 
                 connection.prepareStatement(query);
             ps.executeQuery();
+
+            ps.close();
+            connection.close();
         }catch(SQLException e) {
             throw new Error(e);
         }      
@@ -73,6 +79,9 @@ public class FornecedorRepository implements IFornecedorService{
             PreparedStatement ps = 
                 connection.prepareStatement(query);
             ps.executeQuery();
+
+            ps.close();
+            connection.close();
         }catch(SQLException e) {
             throw new Error(e);
         }        
@@ -91,6 +100,9 @@ public class FornecedorRepository implements IFornecedorService{
             PreparedStatement ps = 
                 connection.prepareStatement(query);
             ps.executeQuery();
+            
+            ps.close();
+            connection.close();
         }catch(SQLException e){
             throw new Error(e);
         }
