@@ -3,6 +3,7 @@ package br.com.estoque.domain.extrato.dtos;
 import java.sql.Date;
 
 public class ExtratoDTO {
+    private Number ID;
     private Date DATA;
     private String NOTA_FISCAL;
     private String ENTRADA_SAIDA;
@@ -12,7 +13,7 @@ public class ExtratoDTO {
     private String FORNECEDOR;
     private String DEPOSITO;
 
-    public ExtratoDTO(Date DATA, String NOTA_FISCAL, String ENTRADA_SAIDA, Number VALOR, String PRODUTO,
+    public ExtratoDTO(Number ID, Date DATA, String NOTA_FISCAL, String ENTRADA_SAIDA, Number VALOR, String PRODUTO,
             Number QUANTIDADE, String FORNECEDOR, String DEPOSITO) {
         this.DATA = DATA;
         this.NOTA_FISCAL = NOTA_FISCAL;
@@ -22,6 +23,14 @@ public class ExtratoDTO {
         this.QUANTIDADE = QUANTIDADE;
         this.FORNECEDOR = FORNECEDOR;
         this.DEPOSITO = DEPOSITO;
+    }
+
+    public Number getID() {
+        return ID;
+    }
+
+    public void setID(Number iD) {
+        ID = iD;
     }
 
     public Date getDATA() {

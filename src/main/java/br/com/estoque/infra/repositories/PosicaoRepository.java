@@ -31,12 +31,17 @@ public class PosicaoRepository implements IPosicaoService {
 
             while (rs.next()) {
                 Posicao posicao = new Posicao();
+                posicao.setID(rs.getInt("ID_REPOS"));
                 posicao.setPRODUTO(rs.getString("NOM_PROD"));
                 posicao.setSALDO(rs.getDouble("NUM_QTD_ESTOQUE"));
                 posicao.setDEPOSITO(rs.getString("NOM_DEPOS"));
 
                 listPosicoes.add(posicao);
             }
+
+            rs.close();
+            ps.close();
+            connection.close();
 
             return listPosicoes;
 

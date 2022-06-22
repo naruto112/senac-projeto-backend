@@ -33,6 +33,7 @@ public class ExtratoRepository implements IExtratoService {
             while (rs.next()) {
                 Extrato extrato = new Extrato();
 
+                extrato.setID(rs.getInt("ID_ESTOQUE"));
                 extrato.setDATA(rs.getDate("DATE_CREATE"));
                 extrato.setNOTA_FISCAL(rs.getString("NUM_NOTA"));
                 extrato.setENTRADA_SAIDA(rs.getString("MOV"));
@@ -44,6 +45,9 @@ public class ExtratoRepository implements IExtratoService {
 
                 listExtratos.add(extrato);
             }
+            rs.close();
+            ps.close();
+            connection.close();
 
             return listExtratos;
 

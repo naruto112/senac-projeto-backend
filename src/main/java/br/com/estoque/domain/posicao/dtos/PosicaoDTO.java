@@ -1,14 +1,24 @@
 package br.com.estoque.domain.posicao.dtos;
 
 public class PosicaoDTO {
+    private Number ID;
     private String PRODUTO;
     private Number SALDO;
     private String DEPOSITO;
 
-    public PosicaoDTO(String PRODUTO, Number SALDO, String DEPOSITO) {
+    public PosicaoDTO(Number ID, String PRODUTO, Number SALDO, String DEPOSITO) {
+        this.ID = ID;
         this.PRODUTO = PRODUTO;
         this.SALDO = SALDO;
         this.DEPOSITO = DEPOSITO;
+    }
+
+    public Number getID() {
+        return ID;
+    }
+
+    public void setID(Number iD) {
+        ID = iD;
     }
 
     public String getPRODUTO() {

@@ -11,41 +11,41 @@ import java.sql.SQLException;
 import br.com.estoque.domain.reposprod.ReposProd;
 import br.com.estoque.domain.reposprod.interfaces.IReposProdService;
 
-
 //vincula deposito com produto
 public class ReposProdRepository implements IReposProdService {
-  
+
     private AgroalDataSource dataSource;
 
     public ReposProdRepository(AgroalDataSource dataSource) {
         this.dataSource = dataSource;
     }
 
-
     @Override
-    public void boundReposWithProduct(ReposProd reposProd  ) {
-        try{
-            String query = "DECLARE V_ID ES_REPOS_PROD.ID%TYPE;BEGIN PCKG_CRUD.REPOS_PROD("+reposProd.getID_PROD()+","+ reposProd.getID_DEPOS()+ " ,0, V_ID);END;";
+    public void boundReposWithProduct(ReposProd reposProd) {
+        try {
+            String query = "DECLARE V_ID ES_REPOS_PROD.ID%TYPE;BEGIN PCKG_CRUD.REPOS_PROD(" + reposProd.getID_PROD()
+                    + "," + reposProd.getID_DEPOS() + " ,0, V_ID);END;";
             Connection connection = dataSource.getConnection();
-            PreparedStatement ps =  connection.prepareStatement(query); 
+            PreparedStatement ps = connection.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                
+
                 reposProd.setID(rs.getInt("V_ID"));
-                System.out.println("AFTEER V_ID"+reposProd.getID());
+                System.out.println("AFTEER V_ID" + reposProd.getID());
 
                 reposProd.setID(rs.getInt("ID"));
-                System.out.println("AFTEER ID"+reposProd.getID());
- 
+                System.out.println("AFTEER ID" + reposProd.getID());
+
             }
 
+            rs.close();
             ps.close();
             connection.close();
 
-        }catch(SQLException e){
+        } catch (SQLException e) {
             throw new Error(e);
-        }        
+        }
     }
 
 }

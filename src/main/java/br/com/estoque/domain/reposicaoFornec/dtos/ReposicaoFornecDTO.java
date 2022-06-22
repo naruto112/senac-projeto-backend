@@ -3,6 +3,7 @@ package br.com.estoque.domain.reposicaoFornec.dtos;
 import java.sql.Date;
 
 public class ReposicaoFornecDTO {
+    private Number ID;
     private String NOM_PROD;
     private Number NUM_QTD_ESTOQUE;
     private Number NUM_QTD_REPOS;
@@ -11,8 +12,10 @@ public class ReposicaoFornecDTO {
     private Number NUM_CUSTO_UN_PROD;
     private Date DTE;
 
-    public ReposicaoFornecDTO(String NOM_PROD, Number NUM_QTD_ESTOQUE, Number NUM_QTD_REPOS, String NOM_DEPOS,
+    public ReposicaoFornecDTO(Number ID, String NOM_PROD, Number NUM_QTD_ESTOQUE, Number NUM_QTD_REPOS,
+            String NOM_DEPOS,
             String NOM_FORNEC, Number NUM_CUSTO_UN_PROD, Date DTE) {
+        this.ID = ID;
         this.NOM_DEPOS = NOM_DEPOS;
         this.NUM_QTD_ESTOQUE = NUM_QTD_ESTOQUE;
         this.NUM_QTD_REPOS = NUM_QTD_REPOS;
@@ -20,6 +23,14 @@ public class ReposicaoFornecDTO {
         this.NOM_FORNEC = NOM_FORNEC;
         this.NUM_CUSTO_UN_PROD = NUM_CUSTO_UN_PROD;
         this.DTE = DTE;
+    }
+
+    public Number getID() {
+        return ID;
+    }
+
+    public void setID(Number iD) {
+        ID = iD;
     }
 
     public String getNOM_PROD() {

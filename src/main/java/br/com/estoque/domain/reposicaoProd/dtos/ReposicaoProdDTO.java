@@ -2,15 +2,26 @@ package br.com.estoque.domain.reposicaoProd.dtos;
 
 public class ReposicaoProdDTO {
     private String NOM_PROD;
+    private Number ID_REP;
     private Number NUM_QTD_ESTOQUE;
     private Number NUM_QTD_REPOS;
     private String NOM_DEPOS;
 
-    public ReposicaoProdDTO(String NOM_PROD, Number NUM_QTD_ESTOQUE, Number NUM_QTD_REPOS, String NOM_DEPOS) {
+    public ReposicaoProdDTO(String NOM_PROD, Number ID_REP, Number NUM_QTD_ESTOQUE, Number NUM_QTD_REPOS,
+            String NOM_DEPOS) {
+        this.ID_REP = ID_REP;
         this.NOM_DEPOS = NOM_DEPOS;
         this.NUM_QTD_ESTOQUE = NUM_QTD_ESTOQUE;
         this.NUM_QTD_REPOS = NUM_QTD_REPOS;
         this.NOM_DEPOS = NOM_DEPOS;
+    }
+
+    public Number getID_REP() {
+        return ID_REP;
+    }
+
+    public void setID_REP(Number iD_REP) {
+        ID_REP = iD_REP;
     }
 
     public String getNOM_PROD() {

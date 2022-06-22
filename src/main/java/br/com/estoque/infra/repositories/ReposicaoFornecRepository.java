@@ -32,6 +32,7 @@ public class ReposicaoFornecRepository implements IReposicaoFornec {
 
             while (rs.next()) {
                 ReposicaoFornec reposicaoFornec = new ReposicaoFornec();
+                reposicaoFornec.setID(rs.getInt("ID_ES"));
                 reposicaoFornec.setNOM_PROD(rs.getString("NOM_PROD"));
                 reposicaoFornec.setNOM_DEPOS(rs.getString("NOM_DEPOS"));
                 reposicaoFornec.setNUM_QTD_ESTOQUE(rs.getInt("NUM_QTD_ESTOQUE"));
@@ -42,6 +43,10 @@ public class ReposicaoFornecRepository implements IReposicaoFornec {
 
                 listExtratos.add(reposicaoFornec);
             }
+
+            rs.close();
+            ps.close();
+            connection.close();
 
             return listExtratos;
 

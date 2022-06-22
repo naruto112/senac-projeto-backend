@@ -55,7 +55,7 @@ public class RelatorioMovimentacaoController {
         try {
             String[] plainHash = header.split(" ");
             if (CryptoHash.validateJWT(plainHash[1].toString(), secret)) {
-                return Response.ok(PosicaoServiceAll.execute(dataSource)).build();
+                return Response.ok(ReposicaoProdAll.execute(dataSource)).build();
             } else {
                 return Response.status(Status.UNAUTHORIZED).entity("Not Authorized").build();
             }
@@ -87,7 +87,7 @@ public class RelatorioMovimentacaoController {
         try {
             String[] plainHash = header.split(" ");
             if (CryptoHash.validateJWT(plainHash[1].toString(), secret)) {
-                return Response.ok(ReposicaoProdAll.execute(dataSource)).build();
+                return Response.ok(PosicaoServiceAll.execute(dataSource)).build();
             } else {
                 return Response.status(Status.UNAUTHORIZED).entity("Not Authorized").build();
             }
